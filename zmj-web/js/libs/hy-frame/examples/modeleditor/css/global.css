@@ -1,0 +1,77 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.g-ver-align-parent{
+    display: table;
+}
+.g-ver-top-child{
+    display: table-cell;
+    vertical-align: top;
+}
+.g-ver-middle-child{
+    display: table-cell;
+    vertical-align: middle;
+}
+.g-ver-bottom_child{
+    display: table-cell;
+    vertical-align: bottom;
+}
+.g-hor-center{
+    margin-left: auto;
+    margin-right: auto;
+}
+.g-fullscreen-mask{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.g-form-input{
+    height: 23px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    border-radius: 3px;
+    border: solid 1px #f39c12;
+}
+.clear{
+    clear: both;
+}
+.g-icon-play{
+    background-image: url("../../hy/res/icon/icon-play.png");
+}
+.g-icon-pause{
+    background-image: url("../../hy/res/icon/icon-pause.png");
+}
+.g-icon-anchor{
+    background-image: url("../../hy/res/icon/icon-aim.png");
+}
+.g-icon-new{
+    background-image: url("../../hy/res/icon/icon-new.png");
+}
+.g-icon-open{
+    background-image: url("../../hy/res/icon/icon-open.png");
+}
+.g-icon-save{
+    background-image: url("../../hy/res/icon/icon-save.png");
+}
+.g-icon-list{
+    background-image: url("../../hy/res/icon/icon-list.png");
+}
+.g-icon-tree{
+    background-image: url("../../hy/res/icon/icon-tree.png");
+}
+.g-icon-clock{
+    background-image: url("../../hy/res/icon/icon-clock.png");
+}
+.g-icon-image-file{
+    background-image: url("../../hy/res/icon/icon-image-file.png");
+}
+.g-icon-volume-audio{
+    background-image: url("../../hy/res/icon/icon-volume-audio.png");
+}
+
+
+
+

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="css/global.css">
+    <link type="text/css" rel="stylesheet" href="css/local.css">
+</head>
+<body style="background-color: white; overflow: hidden; background-color: white">
+<div id="ID_bottom_menu" class="menu-container">
+    <div class="menu-panel">
+        <span id="ID_play_btn" class="menu-btn g-icon-play" title="播放测试"></span>
+        <span id="ID_center_btn" class="menu-btn g-icon-anchor" title="居中"></span>
+        <span id="ID_new_btn" class="menu-btn g-icon-new" title="新建项目"></span>
+        <span id="ID_open_btn" class="menu-btn g-icon-open" title="打开项目"></span>
+        <span id="ID_save_btn" class="menu-btn g-icon-save" title="保存到服务器"></span>
+        <span id="ID_action_btn" class="menu-btn g-icon-list" title="动作列表"></span>
+        <!--<span id="ID_timeline_btn" class="menu-btn g-icon-clock" title="时间轴"></span>-->
+        <!--<span id="ID_texture_btn" class="menu-btn g-icon-image-file" title="贴图管理"></span>-->
+        <!--<span id="ID_audio_btn" class="menu-btn g-icon-volume-audio" title="音频管理"></span>-->
+    </div>
+</div>
+<div id="ID_fullmask_con" class="g-fullscreen-mask g-ver-align-parent" style="display: none">
+    <div id="ID_dialog_node" class="g-ver-middle-child" style="display: none">
+        <div class="window">
+            <div class="window-header">
+                <img id="ID_dialog_node_closebtn" src="../hy/res/icon/icon-close-s.png" style="float: right; margin-top: 3px;" />
+                <img id="ID_dialog_node_icon" src="../hy/res/icon/icon-image-file-s.png" style="float: left; margin-top: 3px;" />
+                <span id="ID_dialog_node_title" class="dialog-title-font">新增节点</span>
+            </div>
+            <div class="window-viewport">
+                <input id="ID_dialog_node_input" class="g-form-input" type="text" placeholder="新节点名" /><br />
+                <p id="ID_dialog_node_error" class="error_msg">
+
+                </p>
+                <button id="ID_dialog_node_surebtn" class="sure-btn" style="float: right">确定</button>
+                <button id="ID_dialog_node_cancelbtn" class="cancel-btn" style="float: right">取消</button>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ID_dialog_action" class="g-ver-middle-child" style="display: none">
+        <div class="window">
+            <div class="window-header">
+                <img id="ID_dialog_action_closebtn" src="../hy/res/icon/icon-close-s.png" style="float: right; margin-top: 3px;" />
+                <img id="ID_dialog_action_icon" src="../hy/res/icon/icon-image-file-s.png" style="float: left; margin-top: 3px;" />
+                <span id="ID_dialog_action_title" class="dialog-title-font">新增动作</span>
+            </div>
+            <div class="window-viewport">
+                <input id="ID_dialog_action_input" class="g-form-input" type="text" placeholder="新节点名" /><br />
+                <p id="ID_dialog_action_error" class="error-msg">
+                </p>
+                <button id="ID_dialog_action_surebtn" class="sure-btn" style="float: right">确定</button>
+                <button id="ID_dialog_action_cancelbtn" class="cancel-btn" style="float: right">取消</button>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div id="ID_dialog_warn" class="g-ver-middle-child" style="display: none;">
+        <div class="window">
+            <div class="window-header">
+                <img id="ID_dialog_warn_closebtn" src="../hy/res/icon/icon-close-s.png" style="float: right; margin-top: 3px;" />
+                <img id="ID_dialog_warn_icon" src="../hy/res/icon/icon-image-file-s.png" style="float: left; margin-top: 3px;" />
+                <span id="ID_dialog_warn_title" class="dialog-title-font">警告</span>
+            </div>
+            <div class="window-viewport">
+                <p id="ID_dialog_warn_content" class="warn-msg">
+                    hellfeafeafe
+                </p>
+                <button id="ID_dialog_warn_surebtn" class="sure-btn" style="float: right">确定</button>
+                <button id="ID_dialog_warn_cancelbtn" class="cancel-btn" style="float: right">取消</button>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--<div id="ID_editor_dialog_renamenode" class="g-ver-middle-child">-->
+        <!--<div class="window">-->
+            <!--<div class="window-header">-->
+                <!--<img src="../hy/res/icon/icon-close-s.png" style="float: right; margin-top: 3px;" />-->
+                <!--<img src="../hy/res/icon/icon-image-file-s.png" style="float: left; margin-top: 3px;" />-->
+                <!--<span class="dialog-title-font">节点重命名</span>-->
+            <!--</div>-->
+            <!--<div class="window-viewport">-->
+                <!--<input class="g-form-input" type="text" placeholder="新节点名" /><br />-->
+                <!--<button class="sure-btn" style="float: right">确定</button>-->
+                <!--<button class="cancel-btn" style="float: right">取消</button>-->
+                <!--<div class="clear"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div id="ID_editor_dialog_newaction" class="g-ver-middle-child">-->
+        <!--<div class="window">-->
+            <!--<div class="window-header">-->
+                <!--<img src="../hy/res/icon/icon-close-s.png" style="float: right; margin-top: 3px;" />-->
+                <!--<img src="../hy/res/icon/icon-image-file-s.png" style="float: left; margin-top: 3px;" />-->
+                <!--<span class="dialog-title-font">新增动作</span>-->
+            <!--</div>-->
+            <!--<div class="window-viewport">-->
+                <!--<input class="g-form-input" type="text" placeholder="新节点名" /><br />-->
+                <!--<button class="sure-btn" style="float: right">确定</button>-->
+                <!--<button class="cancel-btn" style="float: right">取消</button>-->
+                <!--<div class="clear"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div id="ID_editor_dialog_renameaction" class="g-ver-middle-child">-->
+        <!--<div class="window">-->
+            <!--<div class="window-header">-->
+                <!--<img src="../hy/res/icon/icon-close-s.png" style="float: right; margin-top: 3px;" />-->
+                <!--<img src="../hy/res/icon/icon-image-file-s.png" style="float: left; margin-top: 3px;" />-->
+                <!--<span class="dialog-title-font">新增子节点</span>-->
+            <!--</div>-->
+            <!--<div class="window-viewport">-->
+                <!--<input class="g-form-input" type="text" placeholder="新节点名" /><br />-->
+                <!--<button class="sure-btn" style="float: right">确定</button>-->
+                <!--<button class="cancel-btn" style="float: right">取消</button>-->
+                <!--<div class="clear"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="window">-->
+        <!--<div class="window-header">-->
+            <!--<img src="../hy/res/icon/icon-close-s.png" style="float: right; margin-top: 3px;" />-->
+            <!--<img src="../hy/res/icon/icon-image-file-s.png" style="float: left; margin-top: 3px;" />-->
+            <!--<span class="dialog-title-font">警告</span>-->
+        <!--</div>-->
+        <!--<div class="window-viewport">-->
+            <!--<span>是否删除xxx</span>-->
+            <!--<br />-->
+            <!--<button class="sure-btn" style="float: right">确定</button>-->
+            <!--<button class="cancel-btn" style="float: right">取消</button>-->
+            <!--<div class="clear"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+
+
+
+
+
+<script type="text/javascript" src="../hy/config.js"></script>
+<script type="text/javascript" src="../hy/dom.js"></script>
+<script type="text/javascript" src="../hy/geometry.js"></script>
+<script type="text/javascript" src="../hy/platform.js"></script>
+<script type="text/javascript" src="../hy/lang.js"></script>
+<script type="text/javascript" src="../hy/object.js"></script>
+<script type="text/javascript" src="../hy/event.js"></script>
+<script type="text/javascript" src="../hy/action.js"></script>
+<script type="text/javascript" src="../hy/notification.js"></script>
+<script type="text/javascript" src="../hy/observable.js"></script>
+<script type="text/javascript" src="../hy/rendercontext.js"></script>
+<script type="text/javascript" src="../hy/textlayout.js"></script>
+<script type="text/javascript" src="../hy/application.js"></script>
+<script type="text/javascript" src="../hy/node.js"></script>
+<script type="text/javascript" src="../hy/richnode.js"></script>
+
+<script type="text/javascript" src="../hy/gui/gui.js"></script>
+<script type="text/javascript" src="../hy/gui/view.js"></script>
+<script type="text/javascript" src="../hy/gui/window.js"></script>
+<script type="text/javascript" src="../hy/gui/label.js"></script>
+<script type="text/javascript" src="../hy/gui/textbox.js"></script>
+<script type="text/javascript" src="../hy/gui/imageview.js"></script>
+<script type="text/javascript" src="../hy/gui/button.js"></script>
+<script type="text/javascript" src="../hy/gui/panel.js"></script>
+<script type="text/javascript" src="../hy/gui/splitview.js"></script>
+<script type="text/javascript" src="../hy/gui/dropdownmenu.js"></script>
+<script type="text/javascript" src="../hy/gui/combobox.js"></script>
+<script type="text/javascript" src="../hy/gui/menu.js"></script>
+<script type="text/javascript" src="../hy/gui/scrollbar.js"></script>
+<script type="text/javascript" src="../hy/gui/scrollview.js"></script>
+<script type="text/javascript" src="../hy/gui/timelinerule.js"></script>
+<script type="text/javascript" src="../hy/gui/timeline.js"></script>
+<script type="text/javascript" src="../hy/gui/listcellview.js"></script>
+<script type="text/javascript" src="../hy/gui/listview.js"></script>
+<script type="text/javascript" src="../hy/gui/treenodeview.js"></script>
+<script type="text/javascript" src="../hy/gui/treeview.js"></script>
+<script type="text/javascript" src="../hy/gui/simplelistcellview.js"></script>
+<script type="text/javascript" src="../hy/gui/simplelistview.js"></script>
+<script type="text/javascript" src="../hy/gui/simpletreenodeview.js"></script>
+<script type="text/javascript" src="../hy/gui/simpletreeview.js"></script>
+<script type="text/javascript" src="../hy/gui/contextmenu.js"></script>
+
+<script type="text/javascript" src="../hy/net/net.js"></script>
+<script type="text/javascript" src="../hy/net/loader.js"></script>
+
+<script type="text/javascript" src="../hy/html/html.js"></script>
+<script type="text/javascript" src="../hy/html/textbox.js"></script>
+
+<script type="text/javascript" src="../hy/game/game.js"></script>
+<script type="text/javascript" src="../hy/game/unit.js"></script>
+<script type="text/javascript" src="../hy/game/model.js"></script>
+<script type="text/javascript" src="../hy/game/unitbone.js"></script>
+<script type="text/javascript" src="../hy/game/modelbone.js"></script>
+
+<script type="text/javascript" src="editor.js"></script>
+<!--<script type="text/javascript" src="editorwin.js"></script>-->
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="1" style="border: solid 2px red; padding: 10px; margin: 20px;"></div>
+<iframe id="2" onresize="console.log('resize');" style="width: 100%;" onclick="console.log('click');"></iframe>
+<canvas id="canvas" width="100%" height="100%" style="position: fixed; width: 100%; height: 100%; left: 0; top: 0; background-color: red;"></canvas>
+<script src="../jquery.js"></script>
+<script>
+
+    var canvas = document.getElementById("canvas");
+    window.onresize = function () {
+        var t1 = (new Date()).getTime();
+        var oldWidth = 0;
+        var oldHeight = 0;
+        for (var i = 0; i < 10000; ++i) {
+            var clientWidth = canvas.clientWidth;
+            var clientHeight = canvas.clientHeight;
+            if (oldWidth != clientWidth) {
+                oldWidth = clientWidth;
+                if (oldHeight != clientHeight) {
+                    oldHeight = clientHeight;
+                }
+            } else {
+                if (oldHeight != clientHeight) {
+                    oldHeight = clientHeight;
+                }
+            }
+        }
+        var t2 = (new Date()).getTime();
+        console.log(t2 - t1);
+    }
+
+</script>
+</body>
+</html>
