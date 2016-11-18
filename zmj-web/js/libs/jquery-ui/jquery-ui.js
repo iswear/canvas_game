@@ -7202,12 +7202,12 @@
 			this.menu = $( "<ul>" )
 				.addClass( "ui-autocomplete ui-front" )
 				.appendTo( this._appendTo() )
-				.menu({
+				.contextmenu({
 					// disable ARIA support, the live region takes care of that
 					role: null
 				})
 				.hide()
-				.menu( "instance" );
+				.contextmenu( "instance" );
 
 			this._on( this.menu.element, {
 				mousedown: function( event ) {
@@ -11219,7 +11219,7 @@
 
 			// Initialize menu widget
 			this.menuInstance = this.menu
-				.menu({
+				.contextmenu({
 					role: "listbox",
 					select: function( event, ui ) {
 						event.preventDefault();
@@ -11247,7 +11247,7 @@
 							that.menuItems.eq( item.index ).attr( "id" ) );
 					}
 				})
-				.menu( "instance" );
+				.contextmenu( "instance" );
 
 			// Adjust menu styles to dropdown
 			this.menu
@@ -14910,19 +14910,6 @@
 		version: "1.11.4",
 		options: {
 			title: "标题",
-		},
-		_$panelHeader: null,
-		_$panelBody: null,
-		_create: function() {
-			this.element.addClass("ui-panel ui-widget ui-widget-content ui-corner-all ui-front");
-			this._$panelHeader = this.element.children(".ui-panel-header")
-				.addClass("ui-panel-header ui-widget-header ui-corner-all ui-helper-clearfix");
-			this._$panelBody = this.element.children(".ui-panel-body")
-				.addClass("ui-dialog-content ui-widget-content");
-		},
-		_setupHeightStyle: function(heightStyle) {
-			var maxHeight;
-
 		}
 	});
 
@@ -14933,7 +14920,7 @@
 		}
 	});
 
-	var toobar = $.widget("ui.menu", {
+	var toobar = $.widget("ui.toolbar", {
 		version: "1.11.4",
 		options: {
 
