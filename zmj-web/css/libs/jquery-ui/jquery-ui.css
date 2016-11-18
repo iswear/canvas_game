@@ -534,17 +534,17 @@ button.ui-button::-moz-focus-inner {
 .ui-draggable .ui-dialog-titlebar {
 	cursor: move;
 }
-.ui-menu {
+.ui-contextmenu {
 	list-style: none;
 	padding: 0;
 	margin: 0;
 	display: block;
 	outline: none;
 }
-.ui-menu .ui-menu {
+.ui-contextmenu .ui-contextmenu {
 	position: absolute;
 }
-.ui-menu .ui-menu-item {
+.ui-contextmenu .ui-contextmenu-item {
 	position: relative;
 	margin: 0;
 	padding: 3px 1em 3px .4em;
@@ -553,28 +553,28 @@ button.ui-button::-moz-focus-inner {
 	/* support: IE10, see #8844 */
 	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
 }
-.ui-menu .ui-menu-divider {
+.ui-contextmenu .ui-contextmenu-divider {
 	margin: 5px 0;
 	height: 0;
 	font-size: 0;
 	line-height: 0;
 	border-width: 1px 0 0 0;
 }
-.ui-menu .ui-state-focus,
-.ui-menu .ui-state-active {
+.ui-contextmenu .ui-state-focus,
+.ui-contextmenu .ui-state-active {
 	margin: -1px;
 }
 
 /* icon support */
-.ui-menu-icons {
+.ui-contextmenu-icons {
 	position: relative;
 }
-.ui-menu-icons .ui-menu-item {
+.ui-contextmenu-icons .ui-contextmenu-item {
 	padding-left: 2em;
 }
 
 /* left-aligned */
-.ui-menu .ui-icon {
+.ui-contextmenu .ui-icon {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -583,7 +583,7 @@ button.ui-button::-moz-focus-inner {
 }
 
 /* right-aligned */
-.ui-menu .ui-menu-icon {
+.ui-contextmenu .ui-contextmenu-icon {
 	left: auto;
 	right: 0;
 }
@@ -613,13 +613,13 @@ button.ui-button::-moz-focus-inner {
 	left: 0;
 	display: none;
 }
-.ui-selectmenu-menu .ui-menu {
+.ui-selectmenu-menu .ui-contextmenu {
 	overflow: auto;
 	/* Support: IE7 */
 	overflow-x: hidden;
 	padding-bottom: 1px;
 }
-.ui-selectmenu-menu .ui-menu .ui-selectmenu-optgroup {
+.ui-selectmenu-menu .ui-contextmenu .ui-selectmenu-optgroup {
 	font-size: 1em;
 	font-weight: bold;
 	line-height: 1.5;
@@ -988,6 +988,25 @@ body .ui-tooltip {
 	margin: 0;
 	border: none;
 	z-index: 1;
+}
+
+.ui-menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	border: none;
+}
+
+.ui-menu .ui-menu-item {
+	position: relative;
+	float: left;
+	padding: .5em 1.5em;
+}
+
+.ui-menu-item .ui-contextmenu {
+	position: absolute;
+	left: -1px;
+	top: 100%;
 }
 
 .ui-panel {

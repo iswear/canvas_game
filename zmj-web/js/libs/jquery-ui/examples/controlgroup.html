@@ -1,84 +1,32 @@
+
 <!doctype html>
-<html lang="en">
+<html lang="us">
 <head>
     <meta charset="utf-8">
-    <title>jQuery UI Controlgroup - Default Functionality</title>
+    <title>jQuery UI Example Page</title>
     <link href="../../../../css/libs/jquery-ui/jquery-ui.css" rel="stylesheet">
-    <!--<link rel="stylesheet" href="/resources/demos/style.css">-->
     <style>
-        .ui-controlgroup-vertical {
-            width: 150px;
-        }
-        .ui-controlgroup.ui-controlgroup-vertical > button.ui-button,
-        .ui-controlgroup.ui-controlgroup-vertical > .ui-controlgroup-label {
-            text-align: center;
-        }
-        #car-type-button {
-            width: 120px;
-        }
-        .ui-controlgroup-horizontal .ui-spinner-input {
-            width: 20px;
+        body {
+            font-size: 62.5%;
         }
     </style>
-    <script src="../../jquery/jquery.js"></script>
-    <script src="../jquery-ui.js"></script>
-    <script>
-        $( function() {
-            $( ".controlgroup" ).controlgroup();
-        } );
-    </script>
 </head>
 <body>
-<div class="widget">
-    <h1>Controlgroup</h1>
-    <fieldset>
-        <legend>Rental Car</legend>
-        <div class="controlgroup">
-            <select id="car-type">
-                <option>Compact car</option>
-                <option>Midsize car</option>
-                <option>Full size car</option>
-                <option>SUV</option>
-                <option>Luxury</option>
-                <option>Truck</option>
-                <option>Van</option>
-            </select>
-            <label for="transmission-standard">Standard</label>
-            <input type="radio" name="transmission" id="transmission-standard">
-            <label for="transmission-automatic">Automatic</label>
-            <input type="radio" name="transmission" id="transmission-automatic">
-            <label for="insurance">Insurance</label>
-            <input type="checkbox" name="insurance" id="insurance">
-            <label for="horizontal-spinner" class="ui-controlgroup-label"># of cars</label>
-            <input id="horizontal-spinner" class="ui-spinner-input">
-            <button>Book Now!</button>
-        </div>
-    </fieldset>
-    <br>
-    <fieldset>
-        <legend>Rental Car</legend>
-        <div class="controlgroup-vertical">
-            <select>
-                <option>Compact car</option>
-                <option>Midsize car</option>
-                <option>Full size car</option>
-                <option>SUV</option>
-                <option>Luxury</option>
-                <option>Truck</option>
-                <option>Van</option>
-            </select>
-            <label for="transmission-standard-v">Standard</label>
-            <input type="radio" name="transmission-v" id="transmission-standard-v">
-            <label for="transmission-automatic-v">Automatic</label>
-            <input type="radio" name="transmission-v" id="transmission-automatic-v">
-            <label for="insurance-v">Insurance</label>
-            <input type="checkbox" name="insurance" id="insurance-v">
-            <label for="vertical-spinner" class="ui-controlgroup-label"># of cars</label>
-            <input id="vertical-spinner" class="ui-spinner-input">
-            <button id="book">Book Now!</button>
-        </div>
-    </fieldset>
-</div>
-
+<ul id="1">
+    <li>item1
+        <ul>
+            <li>item1-1</li>
+            <li>item1-2</li>
+        </ul>
+    </li>
+    <li>item2</li>
+    <li>item3</li>
+    <div style="clear: both"></div>
+</ul>
+<script src="../../jquery/jquery.js"></script>
+<script src="../jquery-ui.js"></script>
+<script>
+    $("#1").menu();
+</script>
 </body>
 </html>
