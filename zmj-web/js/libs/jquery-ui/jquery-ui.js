@@ -14926,8 +14926,8 @@
 				}).hide();
 				this._on($item, {
 					mouseover: "_menuItemMouseOver",
-					mouseout: "_menuItemMouseOut",
-					mousedown: "_menuItemMouseDown"
+					mousedown: "_menuItemMouseDown",
+					mouseup: "_menuItemMouseUp"
 				});
 			}
 		},
@@ -14944,9 +14944,6 @@
 				}
 			}
 		},
-		_menuItemMouseOut: function(event) {
-
-		},
 		_menuItemMouseDown: function(event) {
 			if (this._focusMenuItemDom == null) {
 				var $item = $(event.currentTarget);
@@ -14954,26 +14951,30 @@
 				$item.children("ul").show();
 				this._focusMenuItemDom = event.currentTarget;
 			} else {
-				var $item = $(event.currentTarget);
-				$item.removeClass("ui-state-active");
-				$item.children("ul").hide();
-				this._focusMenuItemDom = null;
+				if (event.target == event.currentTarget) {
+					var $item = $(event.currentTarget);
+					$item.removeClass("ui-state-active");
+					$item.children("ul").hide();
+					this._focusMenuItemDom = null;
+				}
 			}
 		}
 	});
-
-	var panel = $.widget("ui.panel", {
-		version: "1.11.4",
-		options: {
-			title: "标题",
-		}
-	});
-
 
 	var toolbar = $.widget("ui.toolbar", {
 		version: "1.11.4",
 		options: {
 
+		},
+		_create: function() {
+			
+		}
+	});
+	
+	var panel = $.widget("ui.panel", {
+		version: "1.11.4",
+		options: {
+			title: "标题",
 		}
 	});
 
