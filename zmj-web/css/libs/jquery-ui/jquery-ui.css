@@ -995,12 +995,14 @@ body .ui-tooltip {
 	padding: 0;
 	list-style: none;
 	border: none;
+	cursor: default;
 }
 
 .ui-menu .ui-menu-item {
 	position: relative;
 	float: left;
-	padding: .5em 1.5em;
+	margin: 0;
+	padding: 3px 1em;
 }
 
 .ui-menu-item .ui-contextmenu {

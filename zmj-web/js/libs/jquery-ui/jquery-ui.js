@@ -14911,20 +14911,55 @@
 		options: {
 
 		},
+		_focusMenuItemDom: null,
 		_create: function() {
 			this.element.addClass("ui-menu ui-widget ui-widget-content");
 			var $items = this.element.children("li");
-			$items.each(function(i){
-				var $this = $(this);
-				$this.addClass("ui-menu-item");
-				var $childUl = $this.children("ul").css({
-					'width': '120px',
-					'display': 'none'
+			for (var i = 0, len = $items.length; i < len; ++i) {
+				var item = $items.get(i);
+				var $item = $(item);
+				$item.addClass("ui-menu-item").css({
+					"border": "none"
 				});
-				$childUl.contextmenu();
-			});
+				$item.children("ul").contextmenu().css({
+					"width": "120px"
+				}).hide();
+				this._on($item, {
+					mouseover: "_menuItemMouseOver",
+					mouseout: "_menuItemMouseOut",
+					mousedown: "_menuItemMouseDown"
+				});
+			}
 		},
+		_menuItemMouseOver: function(event) {
+			if (this._focusMenuItemDom != null) {
+				if (this._focusMenuItemDom != event.currentTarget) {
+					var $item = $(event.currentTarget);
+					var $oldItem = $(this._focusMenuItemDom);
+					$oldItem.children("ul").hide();
+					$oldItem.removeClass("ui-state-active");
+					$item.children("ul").show();
+					$item.addClass("ui-state-active");
+					this._focusMenuItemDom = event.currentTarget;
+				}
+			}
+		},
+		_menuItemMouseOut: function(event) {
 
+		},
+		_menuItemMouseDown: function(event) {
+			if (this._focusMenuItemDom == null) {
+				var $item = $(event.currentTarget);
+				$item.addClass("ui-state-active");
+				$item.children("ul").show();
+				this._focusMenuItemDom = event.currentTarget;
+			} else {
+				var $item = $(event.currentTarget);
+				$item.removeClass("ui-state-active");
+				$item.children("ul").hide();
+				this._focusMenuItemDom = null;
+			}
+		}
 	});
 
 	var panel = $.widget("ui.panel", {
