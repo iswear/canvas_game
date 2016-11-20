@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" href="../../../../css/libs/jquery-ui/jquery-ui.css" rel="stylesheet">
+    <style>
+        body {
+            font-size: 62.5%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="ui-layout ui-layout-fullscreen" id="ID_app_layout">
+    <div class="ui-layout-north"></div>
+    <div class="ui-layout-south"></div>
+    <div class="ui-layout-east"></div>
+    <div class="ui-layout-west"></div>
+    <div class="ui-layout-center"></div>
+</div>
+
+<script src="../../jquery/jquery.js"></script>
+<script src="../../jquery-ui/jquery-ui.js"></script>
+<script>
+    (function ($) {
+        $("#ID_app_layout").layout({
+            northHeight: 50,
+            southHeight: 50,
+            eastWidth: 50,
+            westWidth: 50,
+            splitWidth:1
+        });
+    })($);
+</script>
+</body>
+</html>
