@@ -1008,7 +1008,7 @@ body .ui-tooltip {
 	position: relative;
 	float: left;
 	margin: 0;
-	padding: 3px 1em;
+	padding: .4em 1em;
 }
 
 .ui-menu-item .ui-contextmenu {
@@ -1028,6 +1028,7 @@ body .ui-tooltip {
 	float: left;
 	margin: 0;
 	padding: .4em;
+	border: none;
 }
 
 .ui-panel {
@@ -1130,7 +1131,7 @@ body .ui-tooltip {
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-	border: 1px solid #26b3f7;
+	/*border: 1px solid #26b3f7;*/
 	/*background: #0972a5 url("images/ui-bg_highlight-hard_20_0972a5_1x100.png") 50% 50% repeat-x;*/
 	background: #0972a5 url("../../../images/libs/jquery-ui/ui-bg_highlight-hard_20_0972a5_1x100.png") 50% 50% repeat-x;
 	font-weight: normal;
@@ -1420,6 +1421,67 @@ body .ui-tooltip {
 
 /* Misc visuals
 ----------------------------------*/
+
+/* border style */
+.ui-border-default,
+.ui-border-default-top {
+	border-top: 1px solid #444444;
+}
+
+.ui-border-default,
+.ui-border-default-bottom {
+	border-bottom: 1px solid #444444;
+}
+
+.ui-border-default,
+.ui-border-default-left {
+	border-left: 1px solid #444444;
+}
+
+.ui-border-default,
+.ui-border-default-right {
+	border-right: 1px solid #444444;
+}
+
+.ui-border-focus,
+.ui-border-focus-top {
+	border-top: 1px solid #0b93d5;
+}
+
+.ui-border-focus,
+.ui-border-focus-bottom {
+	border-bottom: 1px solid #0b93d5;
+}
+
+.ui-border-focus,
+.ui-border-focus-left {
+	border-left: 1px solid #0b93d5;
+}
+
+.ui-border-focus,
+.ui-border-focus-right {
+	border-right: 1px solid #0b93d5;
+}
+
+.ui-border-active,
+.ui-border-active-top {
+	border-top: 1px solid #26b3f7;
+}
+
+.ui-border-active,
+.ui-border-active-bottom {
+	border-bottom: 1px solid #26b3f7;
+}
+
+.ui-border-active,
+.ui-border-active-left {
+	border-left: 1px solid #26b3f7;
+}
+
+.ui-border-active,
+.ui-border-active-right {
+	border-right: 1px solid #26b3f7;
+}
 
 /* Corner radius */
 .ui-corner-all,

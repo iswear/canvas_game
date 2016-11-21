@@ -14918,7 +14918,9 @@
 		},
 		_focusMenuItemDom: null,
 		_create: function() {
-			this.element.addClass("ui-menu ui-widget ui-widget-content");
+			this.element.addClass("ui-menu ui-widget ui-widget-content ui-helper-clearfix").css({
+				"border": "none"
+			});
 			var $items = this.element.children("li");
 			for (var i = 0, len = $items.length; i < len; ++i) {
 				var item = $items.get(i);
@@ -14985,10 +14987,10 @@
 
 		},
 		_create: function() {
-			this.element.addClass("ui-toolbar ui-widget ui-widget-content");
-			var $items = this.element.children("li").css({
+			this.element.addClass("ui-toolbar ui-widget ui-widget-content ui-helper-clearfix").css({
 				"border": "none"
 			});
+			var $items = this.element.children("li");
 			for (var i = 0, len = $items.length; i < len; ++i) {
 				var item = $items.get(i);
 				var $item = $(item);
