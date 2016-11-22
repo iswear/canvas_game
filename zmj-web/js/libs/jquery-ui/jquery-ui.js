@@ -14565,12 +14565,24 @@
 			this._layoutParam.eastWidth = this.options.eastWidth;
 			this._layoutParam.westWidth = this.options.westWidth;
 
-			this._$centerZone = this.element.children(".ui-layout-center");
-			this._$northZone = this.element.children(".ui-layout-north");
-			this._$southZone = this.element.children(".ui-layout-south");
-			this._$eastZone = this.element.children(".ui-layout-east");
-			this._$westZone = this.element.children(".ui-layout-west");
-			this._$splitZone = this.element.children(".ui-layout-split");
+			this._$centerZone = this.element.children(".ui-layout-center").css({
+				"border": "none"
+			});
+			this._$northZone = this.element.children(".ui-layout-north").css({
+				"border": "none"
+			});
+			this._$southZone = this.element.children(".ui-layout-south").css({
+				"border": "none"
+			});
+			this._$eastZone = this.element.children(".ui-layout-east").css({
+				"border": "none"
+			});
+			this._$westZone = this.element.children(".ui-layout-west").css({
+				"border": "none"
+			});
+			this._$splitZone = this.element.children(".ui-layout-split").css({
+				"border": "none"
+			});
 
 			if(this._$northZone.length == 0) {
 				this._$northZone = null;
@@ -14704,6 +14716,7 @@
 
 			var conHeight = this.element.innerHeight();
 			var halfSplitWidth = this.options.splitWidth / 2;
+			halfSplitWidth = halfSplitWidth < 3 ? 3 : halfSplitWidth;
 			// 判断是否调整north
 			if(localY >= this._layoutParam.northHeight - halfSplitWidth &&
 				localY <= this._layoutParam.northHeight + halfSplitWidth ) {
@@ -14821,6 +14834,7 @@
 
 					var conHeight = this.element.innerHeight();
 					var halfSplitWidth = this.options.splitWidth / 2;
+					halfSplitWidth = halfSplitWidth < 3 ? 3 : halfSplitWidth;
 					// 判断是否调整north
 					if(this._$northZone != null &&
 
@@ -14994,7 +15008,9 @@
 			for (var i = 0, len = $items.length; i < len; ++i) {
 				var item = $items.get(i);
 				var $item = $(item);
-				$item.addClass("ui-toolbar-item");
+				$item.addClass("ui-toolbar-item").css({
+					"border": "none"
+				});
 				this._on($item, {
 					mouseover: "_toolbarItemMouseOver",
 					mouseout: "_toolbarItemMouseOut"
