@@ -34,6 +34,19 @@ icon(图标)
     高度：16px;
     字体：12px;
     边框：none;
+slider(进度条)
+    高度：10px;
+    字体：1px;
+    边框: 1px;
+slider-handler(进度条)
+    高度：14px;
+    字体：12px;
+    边框：1px;
+slider-range(进度范围)
+    高度：10px;
+    字体：1px;
+    边框：none;
+
 
 
 
