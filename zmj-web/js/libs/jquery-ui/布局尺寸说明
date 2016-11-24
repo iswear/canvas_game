@@ -1,0 +1,40 @@
+menu(菜单)：
+    高度：23px;
+    字体：12px;
+    边框：none；
+contextmenu(邮件或者环境菜单)
+    高度：21px;
+    字体：12px;
+    边框：none;
+toolbar(主菜单栏)
+    高度：33px;
+    字体：12px;
+    边框：none;
+accordion-header(手风琴头部高度)
+    高度：27px;
+    字体：12px;
+    边框：1px;
+button(按钮)
+    高度：23px;
+    字体：12px;
+    边框：1px;
+button-set(按钮)
+    高度：23px;
+    字体：12px;
+    边框：1px;
+tabs-header(tabs头部)
+    高度：31px;
+    字体：12px;
+    边框：1px;
+tabs-tab-title(tab的标题高度)
+    高度：25px;
+    字体：12px;
+    边框：1px;
+icon(图标)
+    高度：16px;
+    字体：12px;
+    边框：none;
+
+
+
+
