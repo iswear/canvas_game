@@ -4,6 +4,26 @@
 * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana%2CArial%2Csans-serif&fsDefault=1.1em&fwDefault=normal&cornerRadius=6px&bgColorHeader=%23444444&bgTextureHeader=highlight_soft&borderColorHeader=%23333333&fcHeader=%23ffffff&iconColorHeader=%23ffffff&bgColorContent=%23000000&bgTextureContent=flat&borderColorContent=%23555555&fcContent=%23ffffff&iconColorContent=%23cccccc&bgColorDefault=%23222222&bgTextureDefault=highlight_soft&borderColorDefault=%23444444&fcDefault=%23eeeeee&iconColorDefault=%23cccccc&bgColorHover=%23003147&bgTextureHover=highlight_soft&borderColorHover=%230b93d5&fcHover=%23ffffff&iconColorHover=%23ffffff&bgColorActive=%230972a5&bgTextureActive=highlight_hard&borderColorActive=%2326b3f7&fcActive=%23ffffff&iconColorActive=%23222222&bgColorHighlight=%23eeeeee&bgTextureHighlight=highlight_soft&borderColorHighlight=%23cccccc&fcHighlight=%232e7db2&iconColorHighlight=%234b8e0b&bgColorError=%23ffc73d&bgTextureError=glass&borderColorError=%23ffb73d&fcError=%23111111&iconColorError=%23a83300&bgColorOverlay=%235c5c5c&bgTextureOverlay=flat&bgImgOpacityOverlay=50&opacityOverlay=80&bgColorShadow=%23cccccc&bgTextureShadow=flat&bgImgOpacityShadow=30&opacityShadow=60&thicknessShadow=7px&offsetTopShadow=-7px&offsetLeftShadow=-7px&cornerRadiusShadow=8px&bgImgOpacityHeader=44&bgImgOpacityContent=25&bgImgOpacityDefault=35&bgImgOpacityHover=33&bgImgOpacityActive=20&bgImgOpacityHighlight=80&bgImgOpacityError=40
 * Copyright jQuery Foundation and other contributors; Licensed MIT */
 
+/* scrollbar */
+*::-webkit-scrollbar {
+	width: 8px;
+	background: transparent;
+	/*background-color: #F5F5F5;*/
+}
+
+*::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background: transparent;
+	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+	/*background-color: #F5F5F5;*/
+}
+
+*::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
 /* Layout helpers
 ----------------------------------*/
 .ui-helper-hidden {
@@ -943,10 +963,27 @@ body .ui-tooltip {
     background-color: #555555;
 }
 
-.ui-layout-fullscreen {
+.ui-layout-fillparent {
+	width: 100%;
+	height: 100%;
+}
+
+.ui-layout-fillscreen {
     position: fixed;
     width: 100%;
     height: 100%;
+}
+
+.ui-layout-table {
+	display: table;
+}
+
+.ui-layout-table-row {
+	display: table-row;
+}
+
+.ui-layout-table-cell {
+	display: table-cell;
 }
 
 
@@ -1546,27 +1583,5 @@ body .ui-tooltip {
 	opacity: .6;
 	filter: Alpha(Opacity=60); /* support: IE8 */
 	border-radius: 8px;
-}
-
-*::-webkit-scrollbar
-{
-	width: 8px;
-	background: transparent;
-	/*background-color: #F5F5F5;*/
-}
-
-*::-webkit-scrollbar-track
-{
-	border-radius: 10px;
-	background: transparent;
-	/*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
-	/*background-color: #F5F5F5;*/
-}
-
-*::-webkit-scrollbar-thumb
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
 }
 

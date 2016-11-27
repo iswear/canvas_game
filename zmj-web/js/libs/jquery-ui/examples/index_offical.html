@@ -440,7 +440,7 @@
 
 
     $( "#dialog" ).dialog({
-        autoOpen: false,
+//        autoOpen: false,
         width: 400,
         buttons: [
             {
@@ -489,7 +489,11 @@
 
 
 
-    $( "#menu" ).contextmenu();
+    $( "#menu" ).contextmenu().on(
+            "contextmenuselect", function (event, e) {
+                alert("hjel");
+            }
+    );
 
 
 
