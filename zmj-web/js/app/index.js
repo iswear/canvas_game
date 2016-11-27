@@ -16,7 +16,7 @@
             }
         } else if (item.attr("data-menu-path") == "2$1") {
             if (app_dialog_brush.dialog("isOpen")) {
-                item.find(".i-icon").removeClass("ui-icon-check").addClass("ui-icon-blank");
+                item.find(".ui-icon").removeClass("ui-icon-check").addClass("ui-icon-blank");
                 app_dialog_brush.dialog("close");
             } else {
                 item.find(".ui-icon").removeClass("ui-icon-blank").addClass("ui-icon-check");
