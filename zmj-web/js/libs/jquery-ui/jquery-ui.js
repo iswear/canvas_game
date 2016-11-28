@@ -10200,8 +10200,6 @@
     var dialog = $.widget("ui.dialog", {
         version: "1.11.4",
         options: {
-            minLeft: 0,
-            minTop: 0,
             appendTo: "body",
             autoOpen: true,
             buttons: [],
@@ -10683,11 +10681,11 @@
                     that._trigger("dragStart", event, filteredUi(ui));
                 },
                 drag: function (event, ui) {
-                    if (ui.position.left < that.options.minLeft) {
-                        ui.position.left = that.options.minLeft;
+                    if (ui.position.left < 0) {
+                        ui.position.left = 0;
                     }
-                    if (ui.position.top < that.options.minTop) {
-                        ui.position.top = that.options.minTop;
+                    if (ui.position.top < 0) {
+                        ui.position.top = 0;
                     }
                     that._trigger("drag", event, filteredUi(ui));
                 },

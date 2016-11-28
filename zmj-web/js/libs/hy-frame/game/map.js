@@ -3,7 +3,7 @@ var hy = hy || {};
 var resources = {
     "1":{
         id:1,
-        url:"../../res/terrain/grass.jpeg",
+        url:"js/libs/hy-frame/res/terrain/grass.jpeg",
         clipUnits:[
             [0,0,64,64],
             [0,64,64,64],
@@ -62,7 +62,7 @@ var resources = {
                 dc.moveTo(minX, y);
                 dc.lineTo(maxX, y);
             }
-            dc.setStrokeStyle("#000");
+            dc.setStrokeStyle("#aaa");
             dc.stroke();
         }
     }

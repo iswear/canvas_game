@@ -16,24 +16,24 @@
     <div class="app-nav-left">
 
     </div>
-    <div class="app-content">
+    <div id="ID_app" class="app-content">
         <div class="ui-layout-table ui-layout-fillparent">
             <div class="ui-layout-table-row" style="height: 0;">
-                <ul id="ID_menu" style="margin-bottom: 1px;">
+                <ul id="ID_app_menu" style="margin-bottom: 1px;">
                     <li data-menu-path="1">
                         工程
                         <ul class="app-main-menu-size">
                             <li data-menu-path="1$1">
                                 <div><span class="ui-icon ui-icon-document"></span>新建</div>
                                 <ul class="app-sub-menu-size">
-                                    <li data-menu-path="1$2$1">地图</li>
-                                    <li data-menu-path="1$2$2">模型</li>
+                                    <li data-menu-path="1_2_1">地图</li>
+                                    <li data-menu-path="1_2_2">模型</li>
                                 </ul>
                             </li>
-                            <li data-menu-path="1$2">
+                            <li data-menu-path="1_2">
                                 <div><span class="ui-icon ui-icon-folder-open"></span>打开</div>
                             </li>
-                            <li data-menu-path="1$3">
+                            <li data-menu-path="1_3">
                                 <div><span class="ui-icon ui-icon-disk"></span>保存</div>
                             </li>
                         </ul>
@@ -41,39 +41,27 @@
                     <li data-menu-path="2">
                         视图
                         <ul class="app-main-menu-size">
-                            <li data-menu-path="2$1">
-                                <div><span class="ui-icon ui-icon-blank"></span>画笔资源</div>
-                            </li>
-                            <li data-menu-path="2$2">
-                                <div><span class="ui-icon ui-icon-blank"></span>精灵资源</div>
-                            </li>
-                            <li data-menu-path="2$3">
-                                <div><span class="ui-icon ui-icon-blank"></span>图片资源</div>
-                            </li>
-                            <li data-menu-path="2$4">
-                                <div><span class="ui-icon ui-icon-blank"></span>音乐资源</div>
-                            </li>
-                            <li data-menu-path="2$5">
-                                <div><span class="ui-icon ui-icon-blank"></span>音效资源</div>
+                            <li data-menu-path="2_1">
+                                <div><span class="ui-icon ui-icon-blank"></span>资源视图</div>
                             </li>
                         </ul>
                     </li>
                     <li data-menu-path="3">
                         逻辑
                         <ul class="app-main-menu-size">
-                            <li data-menu-path="3$1"><span class="ui-icon ui-icon-blank"></span>触发器</li>
+                            <li data-menu-path="3_1"><span class="ui-icon ui-icon-blank"></span>触发器</li>
                         </ul>
                     </li>
                     <li data-menu-path="4">
                         上传
                         <ul class="app-main-menu-size">
-                            <li data-menu-path="4$1">
+                            <li data-menu-path="4_1">
                                 <div><span class="ui-icon ui-icon-image"></span>图片</div>
                             </li>
-                            <li data-menu-path="4$2">
+                            <li data-menu-path="4_2">
                                 <div>音乐</div>
                             </li>
-                            <li data-menu-path="4$3">
+                            <li data-menu-path="4_3">
                                 <div>音效</div>
                             </li>
                         </ul>
@@ -81,19 +69,19 @@
                     <li data-menu-path="5">
                         关于
                         <ul class="app-main-menu-size">
-                            <li data-menu-path="5$1">
+                            <li data-menu-path="5_1">
                                 <div><span class="ui-icon ui-icon-help"></span>帮助</div>
                             </li>
-                            <li data-menu-path="5$2">
+                            <li data-menu-path="5_2">
                                 <div>关于本站</div>
                             </li>
-                            <li data-menu-path="5$3">
+                            <li data-menu-path="5_3">
                                 <div>联系我们</div>
                             </li>
                         </ul>
                     </li>
                 </ul>
-                <ul id="ID_toolbar" style="margin-bottom: 1px;">
+                <ul id="ID_app_toolbar" style="margin-bottom: 1px;">
                     <li>
                         <span class="ui-icon ui-icon-folder-open"></span>
                     </li>
@@ -103,7 +91,7 @@
                 </ul>
             </div>
             <div class="ui-layout-table-row">
-                <div class="ui-layout-table-cell" style="background-color: #222">
+                <div id="ID_app_view" class="ui-layout-fillparent" style="position: relative; background-color: #222; overflow: hidden">
                     <canvas id="ID_game_canvas" class="ui-layout-fillparent"></canvas>
                 </div>
             </div>
@@ -112,16 +100,90 @@
 </div>
 <div id="ID_dialog_open" class="app-dialog" title="打开"></div>
 <div id="ID_dialog_save" class="app-dialog" title="保存"></div>
-<div id="ID_dialog_brush" class="app-dialog" title="笔刷资源"></div>
-<div id="ID_dialog_sprite" class="app-dialog" title="精灵资源"></div>
-<div id="ID_dialog_image" class="app-dialog" title="图片资源"></div>
-<div id="ID_dialog_music" class="app-dialog" title="音乐资源"></div>
-<div id="ID_dialog_effect" class="app-dialog" title="音效资源"></div>
+<div id="ID_dialog_resource" class="app-dialog" title="资源视图">
+    <div id="ID_tabs_resource" style="height: 100%; border: none">
+        <ul>
+            <li><a href="#ID_tabs_resource_brush">笔刷</a></li>
+            <li><a href="#ID_tabs_resource_sprite">精灵</a></li>
+            <li><a href="#ID_tabs_resource_music">音乐</a></li>
+            <li><a href="#ID_tabs_resource_effect">音效</a></li>
+        </ul>
+        <div id="ID_tabs_resource_brush">
+
+        </div>
+        <div id="ID_tabs_resource_sprite">
+
+        </div>
+        <div id="ID_tabs_resource_music">
+
+        </div>
+        <div id="ID_tabs_resource_effect">
+
+        </div>
+    </div>
+</div>
 <!-- jquery -->
 <script src="js/libs/jquery/jquery.js"></script>
 <!-- jquery ui -->
 <script src="js/libs/jquery-ui/jquery-ui.js"></script>
 <!-- hyframe -->
+
+<script src="js/libs/hy-frame/config/config.js"></script>
+
+<script src="js/libs/hy-frame/core/lang.js"></script>
+<script src="js/libs/hy-frame/core/object.js"></script>
+<script src="js/libs/hy-frame/core/observable.js"></script>
+<script src="js/libs/hy-frame/core/notification.js"></script>
+<script src="js/libs/hy-frame/core/application.js"></script>
+<script src="js/libs/hy-frame/core/rendercontext.js"></script>
+<script src="js/libs/hy-frame/core/event.js"></script>
+<script src="js/libs/hy-frame/core/action.js"></script>
+<script src="js/libs/hy-frame/core/node.js"></script>
+<script src="js/libs/hy-frame/core/richnode.js"></script>
+<script src="js/libs/hy-frame/core/platform.js"></script>
+
+<script src="js/libs/hy-frame/util/datatype.js"></script>
+<script src="js/libs/hy-frame/util/dom.js"></script>
+<script src="js/libs/hy-frame/util/math.js"></script>
+<script src="js/libs/hy-frame/util/textlayout.js"></script>
+<script src="js/libs/hy-frame/util/timer.js"></script>
+
+<script src="js/libs/hy-frame/net/loader.js"></script>
+<script src="js/libs/hy-frame/net/ajax.js"></script>
+
+<script src="js/libs/hy-frame/html/textbox.js"></script>
+
+<script src="js/libs/hy-frame/gui/gui.js"></script>
+<script src="js/libs/hy-frame/gui/view.js"></script>
+<script src="js/libs/hy-frame/gui/label.js"></script>
+<script src="js/libs/hy-frame/gui/textbox.js"></script>
+<script src="js/libs/hy-frame/gui/imageview.js"></script>
+<script src="js/libs/hy-frame/gui/button.js"></script>
+<script src="js/libs/hy-frame/gui/panel.js"></script>
+<script src="js/libs/hy-frame/gui/dropdownmenu.js"></script>
+<script src="js/libs/hy-frame/gui/combobox.js"></script>
+<script src="js/libs/hy-frame/gui/menu.js"></script>
+<script src="js/libs/hy-frame/gui/scrollbar.js"></script>
+<script src="js/libs/hy-frame/gui/scrollview.js"></script>
+<script src="js/libs/hy-frame/gui/timelinerule.js"></script>
+<script src="js/libs/hy-frame/gui/timeline.js"></script>
+<script src="js/libs/hy-frame/gui/listcellview.js"></script>
+<script src="js/libs/hy-frame/gui/listview.js"></script>
+<script src="js/libs/hy-frame/gui/treenodeview.js"></script>
+<script src="js/libs/hy-frame/gui/treeview.js"></script>
+<script src="js/libs/hy-frame/gui/simplelistcellview.js"></script>
+<script src="js/libs/hy-frame/gui/simplelistview.js"></script>
+<script src="js/libs/hy-frame/gui/simpletreenodeview.js"></script>
+<script src="js/libs/hy-frame/gui/simpletreeview.js"></script>
+<script src="js/libs/hy-frame/gui/contextmenu.js"></script>
+<script src="js/libs/hy-frame/gui/window.js"></script>
+
+<script src="js/libs/hy-frame/game/game.js"></script>
+<script src="js/libs/hy-frame/game/unit.js"></script>
+<script src="js/libs/hy-frame/game/model.js"></script>
+<script src="js/libs/hy-frame/game/unitbone.js"></script>
+<script src="js/libs/hy-frame/game/modelbone.js"></script>
+<script src="js/libs/hy-frame/game/map.js"></script>
 
 <script src="js/app/index.js"></script>
 </body>
