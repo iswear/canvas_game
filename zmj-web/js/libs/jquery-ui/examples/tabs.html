@@ -55,19 +55,22 @@
 <!-- Tabs -->
 <h2 class="demoHeaders">Tabs</h2>
 <div id="tabs" style="height: 400px;">
-    <ul style="background: #444">
+    <ul>
         <li>
             <a href="#tabs-1">
+                <!--图片资源-->
                 图<br/>片<br/>资<br/>源
             </a>
         </li>
         <li>
             <a href="#tabs-2">
+                <!--音乐资源-->
                 音<br/>乐<br/>资<br/>源
             </a>
         </li>
         <li>
             <a href="#tabs-3">
+                <!--精灵资源-->
                 精<br/>灵<br/>资<br/>源
             </a>
         </li>
@@ -81,7 +84,9 @@
 <script src="../jquery-ui.js"></script>
 <script>
 
-    $( "#tabs" ).tabs();
+    $( "#tabs" ).tabs({
+        tabNavPosition: "bottom"
+    });
 </script>
 </body>
 </html>

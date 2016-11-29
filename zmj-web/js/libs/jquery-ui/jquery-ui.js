@@ -5971,7 +5971,7 @@
 
             // clean up headers
             this.headers
-                .removeClass("ui-accordion-header ui-accordion-header-active ui-state-default " +
+                .removeClass("ui-accordion-header ui-accordion-header-active ui-state-default" +
                     "ui-corner-all ui-state-active ui-state-disabled ui-corner-top")
                 .removeAttr("role")
                 .removeAttr("aria-expanded")
@@ -13020,6 +13020,8 @@
         version: "1.11.4",
         delay: 300,
         options: {
+            tabNavPosition: "left",
+            border: false,
             active: null,
             collapsible: false,
             event: "click",
@@ -13033,7 +13035,9 @@
             beforeLoad: null,
             load: null
         },
-
+        _tabBorderClearClasses: "",
+        _tabNavBorderClearClasses: "",
+        _tabNavPosition: "",
         _isLocal: (function () {
             var rhash = /#.*$/;
 
@@ -13062,9 +13066,26 @@
         })(),
 
         _create: function () {
+
             var that = this,
                 options = this.options;
-
+            if (options.tabNavPosition === "top") {
+                this._tabNavPosition = "-top";
+                this._tabNavBorderClearClasses = " ui-border-clear-top ui-border-clear-right ui-border-clear-left";
+            } else if (options.tabNavPosition === "right") {
+                this._tabNavPosition = "-right";
+                this._tabNavBorderClearClasses = " ui-border-clear-top ui-border-clear-right ui-border-clear-bottom";
+            } else if (options.tabNavPosition === "bottom") {
+                this._tabNavPosition = "-bottom";
+                this._tabNavBorderClearClasses = " ui-border-clear-right ui-border-clear-bottom ui-border-clear-left";
+            } else if (options.tabNavPosition === "left") {
+                this._tabNavPosition = "-left";
+                this._tabNavBorderClearClasses = " ui-border-clear-top ui-border-clear-bottom ui-border-clear-left";
+            } else {
+                this._tabNavPosition = "-top";
+                this._tabNavBorderClearClasses = " ui-border-clear-top ui-border-clear-right ui-border-clear-left";
+            }
+            this._tabBorderClearClasses = options.border ? "" : " ui-border-clear-all";
             this.running = false;
 
             /* tabs修正 */
@@ -13073,7 +13094,7 @@
             //     .toggleClass("ui-tabs-collapsible", options.collapsible);
 
             this.element
-                .addClass("ui-tabs-left ui-widget ui-widget-content")
+                .addClass("ui-tabs" + this._tabNavPosition + " ui-widget ui-widget-content" + this._tabBorderClearClasses)
                 .toggleClass("ui-tabs-collapsible", options.collapsible);
 
             this._processTabs();
@@ -13383,7 +13404,7 @@
             //     .attr("role", "tablist")
 
             this.tablist = this._getList()
-                .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header")
+                .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header" + this._tabNavBorderClearClasses)
                 .attr("role", "tablist")
 
                 // Prevent users from focusing disabled tabs via click
@@ -13470,7 +13491,7 @@
 
             /* tabs修正 */
             this.panels
-                .addClass("ui-tabs-panel ui-widget-content")
+                .addClass("ui-tabs-panel ui-border-clear-all")
                 .attr("role", "tabpanel");
             // this.panels
             //     .addClass("ui-tabs-panel ui-widget-content ui-corner-bottom")
@@ -13490,10 +13511,15 @@
         },
 
         _createPanel: function (id) {
+            /* tabs 修正 */
             return $("<div>")
                 .attr("id", id)
-                .addClass("ui-tabs-panel ui-widget-content ui-corner-bottom")
+                .addClass("ui-tabs-panel ui-corner-bottom")
                 .data("ui-tabs-destroy", true);
+            // return $("<div>")
+            //     .attr("id", id)
+            //     .addClass("ui-tabs-panel ui-widget-content ui-corner-bottom")
+            //     .data("ui-tabs-destroy", true);
         },
 
         _setupDisabled: function (disabled) {
@@ -14698,30 +14724,18 @@
             this._layoutParam.eastWidth = this.options.eastWidth;
             this._layoutParam.westWidth = this.options.westWidth;
 
-            this._$centerZone = this.element.children(".ui-layout-center").css({
-                "border": "none"
-            });
-            this._$northZone = this.element.children(".ui-layout-north").css({
-                "border": "none"
-            });
-            this._$southZone = this.element.children(".ui-layout-south").css({
-                "border": "none"
-            });
-            this._$eastZone = this.element.children(".ui-layout-east").css({
-                "border": "none"
-            });
-            this._$westZone = this.element.children(".ui-layout-west").css({
-                "border": "none"
-            });
-            this._$splitZone = this.element.children(".ui-layout-split").css({
-                "border": "none"
-            });
+            this._$centerZone = this.element.children(".ui-layout-center");
+            this._$northZone = this.element.children(".ui-layout-north");
+            this._$southZone = this.element.children(".ui-layout-south");
+            this._$eastZone = this.element.children(".ui-layout-east");
+            this._$westZone = this.element.children(".ui-layout-west");
+            this._$splitZone = this.element.children(".ui-layout-split");
 
             if (this._$northZone.length == 0) {
                 this._$northZone = null;
                 this._layoutParam.northHeight = 0;
             } else {
-                this._$northZone.addClass("ui-widget-content");
+                this._$northZone.addClass("ui-widget-content ui-border-clear-all");
                 if (this.options.northCss != null) {
                     this._$northZone.css(this.options.northCss);
                 }
@@ -14730,7 +14744,7 @@
                 this._$southZone = null;
                 this._layoutParam.southHeight = 0;
             } else {
-                this._$southZone.addClass("ui-widget-content");
+                this._$southZone.addClass("ui-widget-content ui-border-clear-all");
                 if (this.options.southCss != null) {
                     this._$southZone.css(this.options.southCss);
                 }
@@ -14739,7 +14753,7 @@
                 this._$eastZone = null;
                 this._layoutParam.eastWidth = 0;
             } else {
-                this._$eastZone.addClass("ui-widget-content");
+                this._$eastZone.addClass("ui-widget-content ui-border-clear-all");
                 if (this.options.eastCss != null) {
                     this._$eastZone.css(this.options.eastCss);
                 }
@@ -14748,7 +14762,7 @@
                 this._$westZone = null;
                 this._layoutParam.westWidth = 0;
             } else {
-                this._$westZone.addClass("ui-widget-content");
+                this._$westZone.addClass("ui-widget-content ui-border-clear-all");
                 if (this.options.westCss != null) {
                     this._$westZone.css(this.options.westCss);
                 }
@@ -14757,7 +14771,7 @@
                 this._$centerZone = $("<div>").addClass("ui-layout-center");
                 this.element.append(this._$centerZone);
             }
-            this._$centerZone.addClass("ui-widget-content");
+            this._$centerZone.addClass("ui-widget-content ui-border-clear-all");
             if (this.options.centerCss != null) {
                 this._$centerZone.css(this.options.centerCss);
             }

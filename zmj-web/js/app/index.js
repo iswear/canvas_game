@@ -14,20 +14,6 @@
             } else {
                 app_dialog_save.dialog("open");
             }
-        } else if (item.attr("data-menu-path") == "2_1") {
-            if (app_dialog_resource.dialog("isOpen")) {
-                item.find(".ui-icon").removeClass("ui-icon-check").addClass("ui-icon-blank");
-                app_dialog_resource.dialog("close");
-            } else {
-                item.find(".ui-icon").removeClass("ui-icon-blank").addClass("ui-icon-check");
-                app_dialog_resource.dialog("option", "position", {
-                    my: "right top",
-                    at: "right top",
-                    of: $("#ID_app_view"),
-                    collision: "flip"
-                });
-                app_dialog_resource.dialog("open");
-            }
         }
     });
 
@@ -81,14 +67,22 @@
         ]
     });
 
-    var app_dialog_resource = $("#ID_dialog_resource").dialog({
-        autoOpen: false,
-        appendTo: "#ID_app_view",
-        height: 400
+    var app_view = $("#ID_app_view").layout({
+        southHeight: 200,
+        eastWidth: 200,
+        westWidth: 200
     });
 
-    var app_tabs_resource = $("#ID_tabs_resource").tabs({
-        heightStyle: "fill"
+    var app_tabs_resource = $("#ID_app_view_right").tabs({
+        tabNavPosition: "right"
+    });
+
+    var app_tabs_nav = $("#ID_app_view_left").tabs({
+        tabNavPosition: "left"
+    });
+
+    var app_tabs_edit = $("#ID_app_view_bottom").tabs({
+        tabNavPosition: "bottom"
     });
 
 
@@ -117,7 +111,7 @@
         width: 400,
         height: 300,
         scaleMode: 0,
-        canvas: doc.getElementById("ID_game_canvas")
+        canvas: doc.getElementById("ID_app_canvas")
     });
     app.run(new mapeditor.class.MainWin({
         contextmenu:["呵呵"]
