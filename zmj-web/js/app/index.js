@@ -1,5 +1,5 @@
 +function ($, hy, win, doc) {
-
+    
     var app_menu = $("#ID_app_menu").menu().on("menuselect", function(event, ui){
         var item = ui.item;
         if (item.attr("data-menu-path") == "1_2") {

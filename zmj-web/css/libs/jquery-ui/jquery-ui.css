@@ -795,9 +795,6 @@ button.ui-button::-moz-focus-inner {
 	background-position: -65px -16px;
 }
 
-
-
-
 .ui-tabs {
 	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 	padding: .2em;
@@ -842,48 +839,46 @@ button.ui-button::-moz-focus-inner {
 
 
 
-.ui-test-tabs{
-	position: relative;
+.ui-tabs-left {
+	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 }
-
-.ui-test-tabs .ui-test-tabs-left-nav {
+.ui-tabs-left .ui-tabs-nav {
 	position: absolute;
 	left: 0;
 	top: 0;
-	margin: 0;
-	padding: 0;
-	height: 100%;
+	bottom: 0;
+	width: 2em;
 }
-.ui-test-tabs .ui-test-tabs-left-nav li {
+.ui-tabs-left .ui-tabs-nav li {
 	list-style: none;
-	float: left;
+	top: 0;
+	margin: 0;
+	border-right-width: 0;
 	padding: 0;
 	white-space: nowrap;
 }
-.ui-test-tabs .ui-test-tabs-right-nav {
+.ui-tabs-left .ui-tabs-nav .ui-tabs-anchor {
+	/*float: left;*/
+	display: inline-block;
+	padding: .5em .5em;
+	text-decoration: none;
+}
+.ui-tabs-left .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
+.ui-tabs-left .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
+.ui-tabs-left .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
+	cursor: text;
+}
+.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
+	cursor: pointer;
+}
+.ui-tabs-left .ui-tabs-panel {
 	position: absolute;
+	top: 0;
+	left: 2em;
 	right: 0;
-	top: 0;
-	margin: 0;
-	padding: 0;
-	height: 100%;
-}
-.ui-test-tabs .ui-test-tabs-top-nav {
-	position: absolute;
-	left: 0;
-	top: 0;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-}
-.ui-test-tabs .ui-test-tabs-bottom-nav {
-	position: absolute;
-	left: 0;
 	bottom: 0;
-	margin: 0;
-	padding: 0;
-	width: 100%;
 }
+
 
 
 
@@ -1640,3 +1635,14 @@ body .ui-tooltip {
 	border-radius: 8px;
 }
 
+/* box-sizeing */
+.ui-box-border {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.ui-box-content {
+	box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}

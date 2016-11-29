@@ -13067,8 +13067,13 @@
 
             this.running = false;
 
+            /* tabs修正 */
+            // this.element
+            //     .addClass("ui-tabs ui-widget ui-widget-content ui-corner-all")
+            //     .toggleClass("ui-tabs-collapsible", options.collapsible);
+
             this.element
-                .addClass("ui-tabs ui-widget ui-widget-content ui-corner-all")
+                .addClass("ui-tabs-left ui-widget ui-widget-content")
                 .toggleClass("ui-tabs-collapsible", options.collapsible);
 
             this._processTabs();
@@ -13372,8 +13377,13 @@
                 prevAnchors = this.anchors,
                 prevPanels = this.panels;
 
+            /* tabs修正 */
+            // this.tablist = this._getList()
+            //     .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all")
+            //     .attr("role", "tablist")
+
             this.tablist = this._getList()
-                .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all")
+                .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header")
                 .attr("role", "tablist")
 
                 // Prevent users from focusing disabled tabs via click
@@ -13395,12 +13405,19 @@
                     }
                 });
 
+            /* tabs修正 */
             this.tabs = this.tablist.find("> li:has(a[href])")
-                .addClass("ui-state-default ui-corner-top")
+                .addClass("ui-state-default")
                 .attr({
                     role: "tab",
                     tabIndex: -1
                 });
+            // this.tabs = this.tablist.find("> li:has(a[href])")
+            //     .addClass("ui-state-default ui-corner-top")
+            //     .attr({
+            //         role: "tab",
+            //         tabIndex: -1
+            //     });
 
             this.anchors = this.tabs.map(function () {
                 return $("a", this)[0];
@@ -13451,9 +13468,13 @@
                 panel.attr("aria-labelledby", anchorId);
             });
 
+            /* tabs修正 */
             this.panels
-                .addClass("ui-tabs-panel ui-widget-content ui-corner-bottom")
+                .addClass("ui-tabs-panel ui-widget-content")
                 .attr("role", "tabpanel");
+            // this.panels
+            //     .addClass("ui-tabs-panel ui-widget-content ui-corner-bottom")
+            //     .attr("role", "tabpanel");
 
             // Avoid memory leaks (#10056)
             if (prevTabs) {
@@ -13548,8 +13569,7 @@
                 this.panels.each(function () {
                     $(this).height(Math.max(0, maxHeight -
                         $(this).innerHeight() + $(this).height()));
-                })
-                    .css("overflow", "auto");
+                }).css("overflow", "auto");
             } else if (heightStyle === "auto") {
                 maxHeight = 0;
                 this.panels.each(function () {
