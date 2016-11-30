@@ -13404,7 +13404,7 @@
             //     .attr("role", "tablist")
 
             this.tablist = this._getList()
-                .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header" + this._tabNavBorderClearClasses)
+                .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-content" + this._tabNavBorderClearClasses)
                 .attr("role", "tablist")
 
                 // Prevent users from focusing disabled tabs via click
@@ -15191,9 +15191,9 @@
     //     version: "1.11.4",
     //     options: {
     //         title: "标题",
-    //     }
+    //     },
     // });
-    //
+
     // var window = $.widget("ui.window", {
     //     version: "1.11.4",
     //     options: {}

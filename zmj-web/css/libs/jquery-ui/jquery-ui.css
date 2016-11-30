@@ -858,7 +858,8 @@ button.ui-button::-moz-focus-inner {
 	float: left;
 	margin: 0;
 	padding: 0;
-	border-bottom-width: 0;
+	/*border-bottom-width: 0;*/
+	border: 0;
 	list-style: none;
 	white-space: nowrap;
 }
@@ -892,7 +893,8 @@ button.ui-button::-moz-focus-inner {
 	top: 0;
 	margin: 0;
 	padding: 0;
-	border-left-width: 0;
+	/*border-left-width: 0;*/
+	border: 0;
 	list-style: none;
 	text-align: center;
 	white-space: nowrap;
@@ -929,7 +931,8 @@ button.ui-button::-moz-focus-inner {
 	float: left;
 	margin: 0;
 	padding: 0;
-	border-top-width: 0;
+	/*border-top-width: 0;*/
+	border: 0;
 	list-style: none;
 	white-space: nowrap;
 }
@@ -963,7 +966,8 @@ button.ui-button::-moz-focus-inner {
 	list-style: none;
 	top: 0;
 	margin: 0;
-	border-right-width: 0;
+	/*border-right-width: 0;*/
+	border: 0;
 	padding: 0;
 	white-space: nowrap;
 }
