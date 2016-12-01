@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html lang="us">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Example Page</title>
+    <link href="../../../../css/libs/jquery-ui/jquery-ui.css" rel="stylesheet">
+</head>
+<body>
+
+
+<!-- Tabs -->
+<h2 class="demoHeaders">uilayout</h2>
+
+<div id="1" style="width: 400px; height: 400px;">
+    <div class="ui-layout-west" style="visibility: visible">
+
+    </div>
+    <div class="ui-layout-center">
+
+    </div>
+</div>
+<p></p>
+<div id="2" style="width: 400px; height: 400px;">
+    <div class="ui-layout-south"></div>
+    <div class="ui-layout-center"></div>
+</div>
+
+<script src="../../jquery/jquery.js"></script>
+<script src="../jquery-ui.js"></script>
+<script>
+    a = $("#1").layout();
+    b = $("#2").layout();
+</script>
+</body>
+</html>
