@@ -68,20 +68,23 @@
     });
 
     var app_view = $("#ID_app_view").layout({
-        southHeight: 200,
-        eastWidth: 200,
         westWidth: 200
-    });
-
-    var app_tabs_resource = $("#ID_app_view_right").tabs({
-        tabNavPosition: "right"
     });
 
     var app_tabs_nav = $("#ID_app_view_left").tabs({
         tabNavPosition: "left"
     });
+    
+    var app_view_1 = $("#ID_app_view_1").layout({
+        southHeight: 200,
+        eastWidth: 200
+    });
 
-    var app_tabs_edit = $("#ID_app_view_bottom").tabs({
+    var app_tabs_resource = $("#ID_app_view_1_right").tabs({
+        tabNavPosition: "right"
+    });
+
+    var app_tabs_edit = $("#ID_app_view_1_bottom").tabs({
         tabNavPosition: "bottom"
     });
 

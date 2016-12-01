@@ -10,12 +10,6 @@
 <body>
 <!-- 页面布局 -->
 <div class="app ui-layout-fillscreen">
-    <div class="app-header">
-
-    </div>
-    <div class="app-nav-left">
-
-    </div>
     <div id="ID_app" class="app-content">
         <div class="ui-layout-table ui-layout-fillparent">
             <div class="ui-layout-table-row" style="height: 0;">
@@ -102,41 +96,45 @@
                         </ul>
                         <div id="ID_app_panel_struct">精灵结构</div>
                     </div>
-                    <div id="ID_app_view_right" class="ui-layout-east">
-                        <ul>
-                            <li>
-                                <a href="#tabs-1">
-                                    笔<br/>刷<br/>资<br/>源
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#tabs-3">
-                                    <!--精灵资源-->
-                                    精<br/>灵<br/>资<br/>源
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#tabs-2">
-                                    音<br/>乐<br/>资<br/>源
-                                </a>
-                            </li>
-                        </ul>
-                        <div id="tabs-1">笔刷资源</div>
-                        <div id="tabs-2">精灵资源</div>
-                        <div id="tabs-3">音乐资源</div>
-                    </div>
-                    <div id="ID_app_view_bottom" class="ui-layout-south">
-                        <ul>
-                            <li>
-                                <a href="#ID_app_timelines">
-                                    时间轴
-                                </a>
-                            </li>
-                        </ul>
-                        <div id="ID_app_timelines">时间轴</div>
-                    </div>
-                    <div id="ID_app_view_center" class="ui-layout-center" style="background-color: #222; overflow: hidden">
-                        <canvas id="ID_app_canvas" class="ui-layout-fillparent" style="border: none"></canvas>
+                    <div id="ID_app_view_center" class="ui-layout-center">
+                        <div id="ID_app_view_1" class="ui-layout-fillparent" style="background-color: #222; overflow: hidden">
+                            <div id="ID_app_view_1_right" class="ui-layout-east">
+                                <ul>
+                                    <li>
+                                        <a href="#tabs-1">
+                                            笔<br/>刷<br/>资<br/>源
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tabs-3">
+                                            <!--精灵资源-->
+                                            精<br/>灵<br/>资<br/>源
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tabs-2">
+                                            音<br/>乐<br/>资<br/>源
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div id="tabs-1">笔刷资源</div>
+                                <div id="tabs-2">精灵资源</div>
+                                <div id="tabs-3">音乐资源</div>
+                            </div>
+                            <div id="ID_app_view_1_bottom" class="ui-layout-south">
+                                <ul>
+                                    <li>
+                                        <a href="#ID_app_timelines">
+                                            时间轴
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div id="ID_app_timelines">时间轴</div>
+                            </div>
+                            <div id="ID_app_view_1_center" class="ui-layout-center" style="overflow: hidden">
+                                <canvas id="ID_app_canvas" class="ui-layout-fillparent" style="border: none"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
