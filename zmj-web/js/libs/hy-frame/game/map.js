@@ -62,7 +62,7 @@ var resources = {
                 dc.moveTo(minX, y);
                 dc.lineTo(maxX, y);
             }
-            dc.setStrokeStyle("#f63");
+            dc.setStrokeStyle(hy.gui.colors.GRAYLEVEL3);
             dc.stroke();
         }
     }

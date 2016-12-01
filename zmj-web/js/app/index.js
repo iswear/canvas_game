@@ -68,24 +68,20 @@
     });
 
     var app_view = $("#ID_app_view").layout({
-        westWidth: 200
+        eastWidth: 250,
+        southHeight: 120
     });
 
-    var app_tabs_nav = $("#ID_app_view_left").tabs({
-        tabNavPosition: "left"
-    });
-    
-    var app_view_1 = $("#ID_app_view_1").layout({
-        southHeight: 200,
-        eastWidth: 200
+    var app_tabs_res = $("#ID_app_view_right").tabs({
+        tabNavPosition: "top"
     });
 
-    var app_tabs_resource = $("#ID_app_view_1_right").tabs({
-        tabNavPosition: "right"
+    var app_tabs_editor = $("#ID_app_view_bottom").tabs({
+        tabNavPosition: "top"
     });
 
-    var app_tabs_edit = $("#ID_app_view_1_bottom").tabs({
-        tabNavPosition: "bottom"
+    var app_tabs_document = $("#ID_app_view_center").tabs({
+        tabNavPosition: "top"
     });
 
 
@@ -104,7 +100,7 @@
         this._map = new hy.game.Map({
             responseZone:{minX:-Infinity, minY:-Infinity, maxX:Infinity, maxY:Infinity},
             responseEnable:true,
-            contextMenu:["移动"]
+            contextMenu:["移动", "呵呵"]
         });
         this.addChildNodeAtLayer(this._map, 0);
         this.addObserver(hy.event.name.LAYOUTSUBNODES, this, layoutMapEditor, 0);

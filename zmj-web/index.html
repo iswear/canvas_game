@@ -11,10 +11,18 @@
 <!-- 页面布局 -->
 <div class="app ui-layout-fillscreen">
     <div class="app-header">
-
+        <img src="images/app/logo.png" alt="网站logo" style="height: 60px; margin-left: -5px;">
+        <img src="" alt="用户头像">
     </div>
     <div class="app-nav-left">
-
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
     </div>
     <div id="ID_app" class="app-content">
         <div class="ui-layout-table ui-layout-fillparent">
@@ -91,35 +99,40 @@
                 </ul>
             </div>
             <div class="ui-layout-table-row">
-                <div id="ID_app_view" class="ui-layout-fillparent" style="position: relative; overflow: hidden">
+                <div id="ID_app_view" class="ui-layout-fillparent" style="position: relative;">
                     <div id="ID_app_view_right" class="ui-layout-east">
                         <ul>
                             <li>
                                 <a href="#ID_app_panel_struct">
-                                    精<br/>灵<br/>结<br/>构
+                                    结构
                                 </a>
                             </li>
                             <li>
-                                <a href="#tabs-1">
-                                    笔<br/>刷<br/>资<br/>源
+                                <a href="#ID_app_panel_brush">
+                                    笔刷
                                 </a>
                             </li>
                             <li>
-                                <a href="#tabs-3">
-                                    <!--精灵资源-->
-                                    精<br/>灵<br/>资<br/>源
+                                <a href="#ID_app_panel_sprite">
+                                    精灵
                                 </a>
                             </li>
                             <li>
-                                <a href="#tabs-2">
-                                    音<br/>乐<br/>资<br/>源
+                                <a href="#ID_app_panel_music">
+                                    音乐
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#ID_app_panel_effect">
+                                    音效
                                 </a>
                             </li>
                         </ul>
                         <div id="ID_app_panel_struct">精灵结构</div>
-                        <div id="tabs-1">笔刷资源</div>
-                        <div id="tabs-2">精灵资源</div>
-                        <div id="tabs-3">音乐资源</div>
+                        <div id="ID_app_panel_brush">笔刷资源</div>
+                        <div id="ID_app_panel_sprite">精灵资源</div>
+                        <div id="ID_app_panel_music">音乐资源</div>
+                        <div id="ID_app_panel_effect">音效资源</div>
                     </div>
                     <div id="ID_app_view_bottom" class="ui-layout-south">
                         <ul>
@@ -131,8 +144,17 @@
                         </ul>
                         <div id="ID_app_timelines">时间轴</div>
                     </div>
-                    <div id="ID_app_view_center" class="ui-layout-center" style="background-color: #222; overflow: hidden">
-                        <canvas id="ID_app_canvas" class="ui-layout-fillparent" style="border: none"></canvas>
+                    <div id="ID_app_view_center" class="ui-layout-center" style="background-color: black; overflow: hidden">
+                        <ul>
+                            <li>
+                                <a href="#ID_app_document_1">
+                                    开始
+                                </a>
+                            </li>
+                        </ul>
+                        <div id="ID_app_document_1">
+                            <canvas id="ID_app_canvas" class="ui-layout-fillparent" style="border: none"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -13020,7 +13020,7 @@
         version: "1.11.4",
         delay: 300,
         options: {
-            tabNavPosition: "left",
+            tabNavPosition: null,
             border: false,
             active: null,
             collapsible: false,
