@@ -14693,19 +14693,8 @@
             westCss: null,
             centerCss: null
         },
-        _splitStatus: {
-            type: 0,
-            eventStartLeft: 0,
-            eventStartTop: 0,
-            splitStartHor: 0,
-            splitStartVer: 0
-        },
-        _layoutParam: {
-            northHeight: 0,
-            southHeight: 0,
-            eastWidth: 0,
-            westWidth: 0
-        },
+        _splitStatus: null,
+        _layoutParam: null,
         _$centerZone: null,
         _$northZone: null,
         _$southZone: null,
@@ -14718,11 +14707,19 @@
             if (!(posStyle == "absolute" || posStyle == "relative" || posStyle == "fixed")) {
                 this.element.css("position", "relative");
             }
-
-            this._layoutParam.northHeight = this.options.northHeight;
-            this._layoutParam.southHeight = this.options.southHeight;
-            this._layoutParam.eastWidth = this.options.eastWidth;
-            this._layoutParam.westWidth = this.options.westWidth;
+            this._layoutParam = {
+                northHeight: this.options.northHeight,
+                southHeight: this.options.southHeight,
+                eastWidth: this.options.eastWidth,
+                westWidth: this.options.westWidth
+            };
+            this._splitStatus = {
+                type: 0,
+                eventStartLeft: 0,
+                eventStartTop: 0,
+                splitStartHor: 0,
+                splitStartVer: 0
+            };
 
             this._$centerZone = this.element.children(".ui-layout-center");
             this._$northZone = this.element.children(".ui-layout-north");
@@ -14812,12 +14809,12 @@
             } else {
                 centerBottom = this._layoutParam.southHeight + 1;
             }
-            if (this._$eastZone == null) {
+            if (this._$westZone == null) {
                 centerLeft = 0;
             } else {
                 centerLeft = this._layoutParam.westWidth + 1;
             }
-            if (this._$westZone == null) {
+            if (this._$eastZone == null) {
                 centerRight = 0;
             } else {
                 centerRight = this._layoutParam.eastWidth + 1;
@@ -14865,7 +14862,8 @@
             var halfSplitWidth = this.options.splitWidth / 2;
             halfSplitWidth = halfSplitWidth < 3 ? 3 : halfSplitWidth;
             // 判断是否调整north
-            if (localY >= this._layoutParam.northHeight - halfSplitWidth &&
+            if (this._$northZone != null &&
+                localY >= this._layoutParam.northHeight - halfSplitWidth &&
                 localY <= this._layoutParam.northHeight + halfSplitWidth) {
                 this._splitStatus.type = 1;
                 this._splitStatus.splitStartHor = 0;
@@ -14882,7 +14880,8 @@
                 return;
             }
             // 判断是否调整south
-            if (localY >= conHeight - this._layoutParam.southHeight - halfSplitWidth &&
+            if (this._$southZone != null &&
+                localY >= conHeight - this._layoutParam.southHeight - halfSplitWidth &&
                 localY <= conHeight - this._layoutParam.southHeight + halfSplitWidth) {
                 this._splitStatus.type = 2;
                 this._splitStatus.splitStartHor = 0;
@@ -14900,7 +14899,8 @@
             }
             var conWidth = this.element.innerWidth();
             // 判断是否调整west
-            if (localX >= this._layoutParam.westWidth - halfSplitWidth &&
+            if (this._$westZone != null &&
+                localX >= this._layoutParam.westWidth - halfSplitWidth &&
                 localX <= this._layoutParam.westWidth + halfSplitWidth) {
                 this._splitStatus.type = 3;
                 this._splitStatus.splitStartHor = this._layoutParam.westWidth;
@@ -14917,7 +14917,8 @@
                 return;
             }
             // 判断是否调整east
-            if (localX >= conWidth - this._layoutParam.eastWidth - halfSplitWidth &&
+            if (this._$eastZone != null &&
+                localX >= conWidth - this._layoutParam.eastWidth - halfSplitWidth &&
                 localX <= conWidth - this._layoutParam.eastWidth + halfSplitWidth) {
                 this._splitStatus.type = 4;
                 this._splitStatus.splitStartHor = this._layoutParam.eastWidth;
@@ -14989,27 +14990,29 @@
                     halfSplitWidth = halfSplitWidth < 3 ? 3 : halfSplitWidth;
                     // 判断是否调整north
                     if (this._$northZone != null &&
-
                         localY >= this._layoutParam.northHeight - halfSplitWidth &&
                         localY <= this._layoutParam.northHeight + halfSplitWidth) {
                         this.element.css("cursor", "ns-resize");
                         return;
                     }
                     // 判断是否调整south
-                    if (localY >= conHeight - this._layoutParam.southHeight - halfSplitWidth &&
+                    if (this._$southZone != null &&
+                        localY >= conHeight - this._layoutParam.southHeight - halfSplitWidth &&
                         localY <= conHeight - this._layoutParam.southHeight + halfSplitWidth) {
                         this.element.css("cursor", "ns-resize");
                         return;
                     }
                     var conWidth = this.element.innerWidth();
                     // 判断是否调整west
-                    if (localX >= this._layoutParam.westWidth - halfSplitWidth &&
+                    if (this._$westZone != null &&
+                        localX >= this._layoutParam.westWidth - halfSplitWidth &&
                         localX <= this._layoutParam.westWidth + halfSplitWidth) {
                         this.element.css("cursor", "ew-resize");
                         return;
                     }
                     // 判断是否调整east
-                    if (localX >= conWidth - this._layoutParam.eastWidth - halfSplitWidth &&
+                    if (this._$eastZone != null &&
+                        localX >= conWidth - this._layoutParam.eastWidth - halfSplitWidth &&
                         localX <= conWidth - this._layoutParam.eastWidth + halfSplitWidth) {
                         this.element.css("cursor", "ew-resize");
                         return;
