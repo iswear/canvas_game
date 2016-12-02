@@ -743,8 +743,10 @@ var hy = hy || {};
             var localLoc = this.getUserProperty("event_local_loc");
             if (this._clipEnable) {
                 var clipZone = this._clipZone;
-                if (localLoc.x >= clipZone.minX && localLoc.x <= clipZone.maxX
-                    && localLoc.y >= clipZone.minY && localLoc.y <= clipZone.maxY) {
+                if (localLoc.x >= clipZone.minX &&
+                    localLoc.x <= clipZone.maxX &&
+                    localLoc.y >= clipZone.minY &&
+                    localLoc.y <= clipZone.maxY) {
                     var layers = this._childNodes.nodeLayers;
                     for (var i = layers.length - 1; i > -1; --i) {
                         var layer = layers[i];
@@ -759,8 +761,10 @@ var hy = hy || {};
                         }
                     }
                     var responseZone = this._responseZone;
-                    if (localLoc.x >= responseZone.minX && localLoc.x <= responseZone.maxX
-                        && localLoc.y >= responseZone.minY && localLoc.y <= responseZone.maxY) {
+                    if (localLoc.x >= responseZone.minX &&
+                        localLoc.x <= responseZone.maxX &&
+                        localLoc.y >= responseZone.minY &&
+                        localLoc.y <= responseZone.maxY) {
                         var parentNode = null;
                         var subNode = null;
                         var preTargetNode = e.targetNode;
@@ -834,8 +838,10 @@ var hy = hy || {};
                 }
 
                 var responseZone = this._responseZone;
-                if (localLoc.x >= responseZone.minX && localLoc.x <= responseZone.maxX
-                    && localLoc.y >= responseZone.minY && localLoc.y <= responseZone.maxY) {
+                if (localLoc.x >= responseZone.minX &&
+                    localLoc.x <= responseZone.maxX &&
+                    localLoc.y >= responseZone.minY &&
+                    localLoc.y <= responseZone.maxY) {
                     var parentNode = null;
                     var subNode = null;
                     var preTargetNode = this;
