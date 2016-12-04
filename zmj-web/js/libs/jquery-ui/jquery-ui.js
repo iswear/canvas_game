@@ -13021,7 +13021,7 @@
         delay: 300,
         options: {
             tabNavPosition: null,
-            border: false,
+            border: true,
             active: null,
             collapsible: false,
             event: "click",
@@ -13035,9 +13035,12 @@
             beforeLoad: null,
             load: null
         },
-        _tabBorderClearClasses: "",
-        _tabNavBorderClearClasses: "",
-        _tabNavPosition: "",
+        _tabBorderClearClasses: null,
+        _tabNavBorderClearClasses: null,
+        _tabHeaderItemClasses: null,
+        _tabPanelClasses: null,
+        _tabPositionClasses: null,
+        _tabPanelsClasses: null,
         _isLocal: (function () {
             var rhash = /#.*$/;
 
@@ -13070,20 +13073,30 @@
             var that = this,
                 options = this.options;
             if (options.tabNavPosition === "top") {
-                this._tabNavPosition = "-top";
-                this._tabNavBorderClearClasses = " ui-border-clear-top ui-border-clear-right ui-border-clear-left";
+                this._tabNavPosition = "ui-tabs-top";
+                this._tabNavBorderClearClasses = " ui-widget-content ui-border-clear-top ui-border-clear-right ui-border-clear-left";
+                this._tabHeaderItemClasses = " ui-state-default";
+                this._tabPanelsClasses = "ui-tabs-panel ui-border-clear-all";
             } else if (options.tabNavPosition === "right") {
-                this._tabNavPosition = "-right";
-                this._tabNavBorderClearClasses = " ui-border-clear-top ui-border-clear-right ui-border-clear-bottom";
+                this._tabNavPosition = "ui-tabs-right";
+                this._tabNavBorderClearClasses = " ui-widget-content ui-border-clear-top ui-border-clear-right ui-border-clear-bottom";
+                this._tabHeaderItemClasses = " ui-state-default";
+                this._tabPanelsClasses = "ui-tabs-panel ui-border-clear-all";
             } else if (options.tabNavPosition === "bottom") {
-                this._tabNavPosition = "-bottom";
-                this._tabNavBorderClearClasses = " ui-border-clear-right ui-border-clear-bottom ui-border-clear-left";
+                this._tabNavPosition = "ui-tabs-bottom";
+                this._tabNavBorderClearClasses = " ui-widget-content ui-border-clear-right ui-border-clear-bottom ui-border-clear-left";
+                this._tabHeaderItemClasses = " ui-state-default";
+                this._tabPanelsClasses = "ui-tabs-panel ui-border-clear-all";
             } else if (options.tabNavPosition === "left") {
-                this._tabNavPosition = "-left";
-                this._tabNavBorderClearClasses = " ui-border-clear-top ui-border-clear-bottom ui-border-clear-left";
+                this._tabNavPosition = "ui-tabs-left";
+                this._tabNavBorderClearClasses = " ui-widget-content ui-border-clear-top ui-border-clear-bottom ui-border-clear-left";
+                this._tabHeaderItemClasses = " ui-state-default";
+                this._tabPanelsClasses = "ui-tabs-panel ui-border-clear-all";
             } else {
-                this._tabNavPosition = "-top";
-                this._tabNavBorderClearClasses = " ui-border-clear-top ui-border-clear-right ui-border-clear-left";
+                this._tabNavPosition = "ui-tabs ui-corner-all";
+                this._tabNavBorderClearClasses = " ui-widget-header ui-corner-all";
+                this._tabHeaderItemClasses = " ui-state-default ui-corner-top";
+                this._tabPanelsClasses = "ui-tabs-panel ui-widget-content ui-corner-bottom";
             }
             this._tabBorderClearClasses = options.border ? "" : " ui-border-clear-all";
             this.running = false;
@@ -13094,7 +13107,7 @@
             //     .toggleClass("ui-tabs-collapsible", options.collapsible);
 
             this.element
-                .addClass("ui-tabs" + this._tabNavPosition + " ui-widget ui-widget-content" + this._tabBorderClearClasses)
+                .addClass(this._tabNavPosition + " ui-widget ui-widget-content" + this._tabBorderClearClasses)
                 .toggleClass("ui-tabs-collapsible", options.collapsible);
 
             this._processTabs();
@@ -13404,7 +13417,7 @@
             //     .attr("role", "tablist")
 
             this.tablist = this._getList()
-                .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-content" + this._tabNavBorderClearClasses)
+                .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix" + this._tabNavBorderClearClasses)
                 .attr("role", "tablist")
 
                 // Prevent users from focusing disabled tabs via click
@@ -13428,7 +13441,7 @@
 
             /* tabs修正 */
             this.tabs = this.tablist.find("> li:has(a[href])")
-                .addClass("ui-state-default")
+                .addClass(this._tabHeaderItemClasses)
                 .attr({
                     role: "tab",
                     tabIndex: -1
@@ -13491,7 +13504,7 @@
 
             /* tabs修正 */
             this.panels
-                .addClass("ui-tabs-panel ui-border-clear-all")
+                .addClass(this._tabPanelsClasses)
                 .attr("role", "tabpanel");
             // this.panels
             //     .addClass("ui-tabs-panel ui-widget-content ui-corner-bottom")

@@ -802,10 +802,13 @@ button.ui-button::-moz-focus-inner {
 .ui-tabs .ui-tabs-nav {
 	margin: 0;
 	padding: .2em .2em 0;
+	overflow: hidden;
+	/*white-space: nowrap;*/
 }
 .ui-tabs .ui-tabs-nav li {
 	list-style: none;
 	float: left;
+	/*display: inline-block;*/
 	position: relative;
 	top: 0;
 	margin: 1px .2em 0 0;
@@ -1652,25 +1655,25 @@ body .ui-tooltip {
 .ui-corner-top,
 .ui-corner-left,
 .ui-corner-tl {
-	border-top-left-radius: 6px;
+	border-top-left-radius: 0px;
 }
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-right,
 .ui-corner-tr {
-	border-top-right-radius: 6px;
+	border-top-right-radius: 0px;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-left,
 .ui-corner-bl {
-	border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 0px;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-right,
 .ui-corner-br {
-	border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 0px;
 }
 
 .ui-corner-s-all,
