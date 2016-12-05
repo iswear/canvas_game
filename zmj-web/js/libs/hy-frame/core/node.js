@@ -844,7 +844,7 @@ var hy = hy || {};
                     localLoc.y <= responseZone.maxY) {
                     var parentNode = null;
                     var subNode = null;
-                    var preTargetNode = this;
+                    var preTargetNode = e.targetNode;
                     if (preTargetNode != this) {
                         e.targetNode = this;
                         if (isMouseMove) {
