@@ -833,22 +833,12 @@ button.ui-button::-moz-focus-inner {
 /*.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {*/
 	/*cursor: pointer;*/
 /*}*/
-.ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
-.ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
-.ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor {
-	cursor: text;
-}
-.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
-	cursor: pointer;
-}
 .ui-tabs .ui-tabs-panel {
 	display: block;
 	border-width: 0;
 	padding: 1em 1.4em;
 	background: none;
 }
-
-
 
 .ui-tabs-custom {
 	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
@@ -868,6 +858,8 @@ button.ui-button::-moz-focus-inner {
 	white-space: nowrap;
 }
 .ui-tabs-custom .ui-tabs-nav button {
+	position: relative;
+	display: block;
 	float: right;
 	margin: 0 1px;
 	position: relative;
@@ -882,11 +874,13 @@ button.ui-button::-moz-focus-inner {
 	margin-left: -8px;
 }
 .ui-tabs-custom .ui-tabs-nav .ui-tabs-anchor {
-	display: inline-block;
+	float: left;
+	margin: 0;
+	padding: 0 1em;
 	line-height: 2em;
-	padding-left: 1em;
-	padding-right: 1em;
-	text-decoration: none;
+}
+.ui-tabs-custom .ui-tabs-nav .ui-icon {
+	float: left;
 }
 .ui-tabs-custom .ui-tabs-panel {
 	position: absolute;
@@ -896,8 +890,12 @@ button.ui-button::-moz-focus-inner {
 	bottom: .1em;
 }
 
-
-
+.ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor,
+.ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
+.ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor,
+.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
+	cursor: pointer;
+}
 
 .ui-tooltip {
 	padding: 8px;
