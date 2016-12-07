@@ -73,15 +73,15 @@
     });
 
     var app_tabs_res = $("#ID_app_view_right").tabs({
-        tabNavPosition: "top"
+        isCustom: true
     });
 
     var app_tabs_editor = $("#ID_app_view_bottom").tabs({
-        tabNavPosition: "top"
+        isCustom: true
     });
 
     var app_tabs_document = $("#ID_app_view_center").tabs({
-        tabNavPosition: "top"
+        isCustom: true
     });
 
 

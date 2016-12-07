@@ -850,15 +850,15 @@ button.ui-button::-moz-focus-inner {
 
 
 
-.ui-tabs-custom {
+.ui-tabs-top {
 	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 }
-.ui-tabs-custom .ui-tabs-nav {
+.ui-tabs-top .ui-tabs-nav {
 	height: 2em;
 	padding: .2em 1px 0 1px;
 	overflow: hidden;
 }
-.ui-tabs-custom .ui-tabs-nav li {
+.ui-tabs-top .ui-tabs-nav li {
 	float: left;
 	margin: 0 1px;
 	padding: 0;
@@ -867,28 +867,17 @@ button.ui-button::-moz-focus-inner {
 	list-style: none;
 	white-space: nowrap;
 }
-.ui-tabs-custom .ui-tabs-nav button {
-	float: right;
-	margin: 0 1px;
-	position: relative;
-	width: 2em;
-	height: 2em;
+.ui-tabs-top .ui-tabs-nav li {
+
 }
-.ui-tabs-custom .ui-tabs-nav button .ui-icon {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-top: -8px;
-	margin-left: -8px;
-}
-.ui-tabs-custom .ui-tabs-nav .ui-tabs-anchor {
+.ui-tabs-top .ui-tabs-nav .ui-tabs-anchor {
 	display: inline-block;
 	line-height: 2em;
 	padding-left: 1em;
 	padding-right: 1em;
 	text-decoration: none;
 }
-.ui-tabs-custom .ui-tabs-panel {
+.ui-tabs-top .ui-tabs-panel {
 	position: absolute;
 	top: 2.3em;
 	left: .1em;
@@ -897,6 +886,114 @@ button.ui-button::-moz-focus-inner {
 }
 
 
+.ui-tabs-right {
+	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+}
+.ui-tabs-right .ui-tabs-nav {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	width: 2em;
+}
+.ui-tabs-right .ui-tabs-nav li {
+	top: 0;
+	margin: 0;
+	padding: 0;
+	/*border-left-width: 0;*/
+	border: 0;
+	list-style: none;
+	text-align: center;
+	white-space: nowrap;
+}
+.ui-tabs-right .ui-tabs-nav .ui-tabs-anchor {
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	text-decoration: none;
+}
+.ui-tabs-right .ui-tabs-panel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 2em;
+	bottom: 0;
+}
+
+
+
+.ui-tabs-bottom {
+	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+}
+.ui-tabs-bottom .ui-tabs-nav {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 2em;
+}
+.ui-tabs-bottom .ui-tabs-nav li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	/*border-top-width: 0;*/
+	border: 0;
+	list-style: none;
+	white-space: nowrap;
+}
+.ui-tabs-bottom .ui-tabs-nav .ui-tabs-anchor {
+	display: inline-block;
+	line-height: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+	text-decoration: none;
+}
+.ui-tabs-bottom .ui-tabs-panel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 2em;
+}
+
+
+.ui-tabs-left {
+	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+}
+.ui-tabs-left .ui-tabs-nav {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: 2em;
+}
+.ui-tabs-left .ui-tabs-nav li {
+	list-style: none;
+	top: 0;
+	margin: 0;
+	/*border-right-width: 0;*/
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+.ui-tabs-left .ui-tabs-nav .ui-tabs-anchor {
+	/*float: left;*/
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	padding-top: .5em;
+	padding-bottom: .5em;
+	text-decoration: none;
+}
+.ui-tabs-left .ui-tabs-panel {
+	position: absolute;
+	top: 0;
+	left: 2em;
+	right: 0;
+	bottom: 0;
+}
 
 
 .ui-tooltip {
