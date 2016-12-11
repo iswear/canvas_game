@@ -13035,13 +13035,13 @@
             beforeLoad: null,
             load: null
         },
-        _tabBorderClearClasses: null,
-        _tabNavBorderClearClasses: null,
-        _tabHeaderItemClasses: null,
+        _tabClasses: null,
+        _tabNavClasses: null,
+        _tabNavItemClasses: null,
         _tabPanelClasses: null,
-        _tabPositionClasses: null,
-        _tabPanelsClasses: null,
-        _$tabBtn: null,
+        _$moreBtn: null,
+        _$moreMenu: null,
+        _moreMenuJustShow: false,
         _isLocal: (function () {
             var rhash = /#.*$/;
 
@@ -13073,17 +13073,16 @@
             var that = this,
                 options = this.options;
             if (options.isCustom) {
-                this._tabNavPosition = "ui-tabs-custom";
-                this._tabNavBorderClearClasses = " ui-widget-content ui-border-clear-top ui-border-clear-right ui-border-clear-left";
-                this._tabHeaderItemClasses = " ui-state-default";
-                this._tabPanelsClasses = "ui-tabs-panel ui-border-clear-all";
+                this._tabClasses = options.border ? "ui-tabs-custom ui-widget ui-widget-content" : "ui-tabs-custom ui-widget ui-widget-content ui-border-clear-all";
+                this._tabNavClasses = "ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-content ui-border-clear-top ui-border-clear-right ui-border-clear-left";
+                this._tabNavItemClasses = "ui-state-default";
+                this._tabPanelClasses = "ui-tabs-panel ui-border-clear-all";
             } else {
-                this._tabNavPosition = "ui-tabs ui-corner-all";
-                this._tabNavBorderClearClasses = " ui-widget-header ui-corner-all";
-                this._tabHeaderItemClasses = " ui-state-default ui-corner-top";
-                this._tabPanelsClasses = "ui-tabs-panel ui-widget-content ui-corner-bottom";
+                this._tabClasses = options.border ? "ui-tabs ui-widget ui-widget-content ui-corner-all" : "ui-tabs ui-widget ui-widget-content ui-corner-all ui-border-clear-all";
+                this._tabNavClasses = "ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all";
+                this._tabNavItemClasses = "ui-state-default ui-corner-top";
+                this._tabPanelClasses = "ui-tabs-panel ui-widget-content ui-corner-bottom";
             }
-            this._tabBorderClearClasses = options.border ? "" : " ui-border-clear-all";
             this.running = false;
 
             /* tabs修正 */
@@ -13092,7 +13091,7 @@
             //     .toggleClass("ui-tabs-collapsible", options.collapsible);
 
             this.element
-                .addClass(this._tabNavPosition + " ui-widget ui-widget-content" + this._tabBorderClearClasses)
+                .addClass(this._tabClasses)
                 .toggleClass("ui-tabs-collapsible", options.collapsible);
 
             this._processTabs();
@@ -13401,7 +13400,7 @@
             //     .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all")
             //     .attr("role", "tablist")
             this.tablist = this._getList()
-                .addClass("ui-tabs-nav ui-helper-reset ui-helper-clearfix" + this._tabNavBorderClearClasses)
+                .addClass(this._tabNavClasses)
                 .attr("role", "tablist")
 
                 // Prevent users from focusing disabled tabs via click
@@ -13425,7 +13424,7 @@
 
             /* tabs修正 */
             this.tabs = this.tablist.find("> li:has(a[href])")
-                .addClass(this._tabHeaderItemClasses)
+                .addClass(this._tabNavItemClasses)
                 .attr({
                     role: "tab",
                     tabIndex: -1
@@ -13488,26 +13487,31 @@
 
             /* tabs修正 */
             this.panels
-                .addClass(this._tabPanelsClasses)
+                .addClass(this._tabPanelClasses)
                 .attr("role", "tabpanel");
             // this.panels
             //     .addClass("ui-tabs-panel ui-widget-content ui-corner-bottom")
             //     .attr("role", "tabpanel");
-            if (this._$tabBtn == null) {
-                this._$tabBtn = $("<button>")
-                    .append($("<span>").addClass("ui-icon ui-icon-carat-1-e"))
-                    .addClass("ui-state-default")
-                    .css({
-                        "border": "none"
+            if (this.options.isCustom) {
+                if (this._$moreBtn == null) {
+                    this._$moreBtn = $("<button>")
+                        .append($("<span>").addClass("ui-icon ui-icon-carat-1-s"))
+                        .addClass("ui-state-default")
+                        .css({
+                            "border-bottom-width": 0
+                        });
+                    this._on(this._$moreBtn, {
+                        "mouseover": "_mouseOverTabBtn",
+                        "mouseout": "_mouseOutTabBtn",
+                        "mousedown": "_mouseDownTabBtn",
+                        "mouseup": "_mouseUpTabBtn"
                     });
-                this._on(this._$tabBtn, {
-                    "mouseover": "_mouseOverTabBtn",
-                    "mouseout": "_mouseOutTabBtn",
-                    "mousedown": "_mouseDownTabBtn",
-                    "mouseup": "_mouseUpTabBtn"
+                }
+                this._on(document, {
+                    "click": "_clickDocument"
                 });
+                this.tablist.prepend(this._$moreBtn);
             }
-            this.tablist.prepend(this._$tabBtn);
             // Avoid memory leaks (#10056)
             if (prevTabs) {
                 this._off(prevTabs.not(this.tabs));
@@ -13515,21 +13519,42 @@
                 this._off(prevPanels.not(this.panels));
             }
         },
+        _clickDocument: function(e) {
+            if (this._moreMenuJustShow) {
+                this._moreMenuJustShow = false;
+            } else {
+                if (this._$moreMenu != null) {
+                    this._$moreMenu.contextmenu("destroy");
+                    this._$moreMenu.remove();
+                    this._$moreMenu = null;
+                }
+            }
+        },
         _mouseOverTabBtn: function(e) {
-            var tabBtn = $(e.currentTarget);
-            $(tabBtn).removeClass("ui-state-default ui-state-active").addClass("ui-state-focus");
+            this._$moreBtn.removeClass("ui-state-default ui-state-active").addClass("ui-state-focus");
         },
         _mouseOutTabBtn: function(e) {
-            var tabBtn = $(e.currentTarget);
-            $(tabBtn).removeClass("ui-state-focus ui-state-active").addClass("ui-state-default");
+            this._$moreBtn.removeClass("ui-state-focus ui-state-active").addClass("ui-state-default");
         },
         _mouseDownTabBtn: function(e) {
-            var tabBtn = $(e.currentTarget);
-            $(tabBtn).removeClass("ui-state-default ui-state-focus").addClass("ui-state-active");
+            this._$moreBtn.removeClass("ui-state-default ui-state-focus").addClass("ui-state-active");
         },
         _mouseUpTabBtn: function(e) {
-            var tabBtn = $(e.currentTarget);
-            $(tabBtn).removeClass("ui-state-default ui-state-active").addClass("ui-state-focus");
+            this._$moreBtn.removeClass("ui-state-default ui-state-active").addClass("ui-state-focus");
+            if (this._$moreMenu == null) {
+                this._$moreMenu = $("<ul>");
+                for (var i = 0, len = this.anchors.length; i < len; ++i) {
+                    this._$moreMenu.append($("<li>").html($(this.anchors.get(i)).html()));
+                }
+                this._$moreMenu.contextmenu().css({
+                    "position": "absolute",
+                    "right": "2px",
+                    "top": "2.3em",
+                    "z-index": 999999
+                });
+                this.element.append(this._$moreMenu);
+                this._moreMenuJustShow = true;
+            }
         },
         // allow overriding how to find the list for rare usage scenarios (#7715)
         _getList: function () {
