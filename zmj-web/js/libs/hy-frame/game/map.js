@@ -1,34 +1,5 @@
 var hy = hy || {};
 
-var resources = {
-    "1":{
-        id:1,
-        url:"js/libs/hy-frame/res/terrain/grass.jpeg",
-        clipUnits:[
-            [0,0,64,64],
-            [0,64,64,64],
-            [0,128,64,64],
-            [0,192,64,64],
-            [64,0,64,64],
-            [64,64,64,64],
-            [64,128,64,64],
-            [64,192,64,64],
-            [128,0,64,64],
-            [128,64,64,64],
-            [128,128,64,64],
-            [128,192,64,64],
-            [192,0,64,64],
-            [192,64,64,64],
-            [192,128,64,64],
-            [192,192,64,64],
-            [256,0,64,64],
-            [256,64,64,64],
-            [256,128,64,64],
-            [256,192,64,64]
-        ]
-    }
-};
-
 +function (hy, win, doc) {
 
     function paintGrid (sender, dc, zone) {
@@ -68,6 +39,7 @@ var resources = {
     }
 
     function paintTerrain (sender, dc, zone) {
+        var resources = this.getTerrainRes();
         var visibleZone = this.getClipZone();
         var minX = visibleZone.minX - zone.x;
         var minY = visibleZone.minY - zone.y;
@@ -188,7 +160,7 @@ var resources = {
                         }
                     }
                     for (var a = 0, size = cellInfo.length; a < size; ++a) {
-                        if (resources[cellInfo[a][0]]) {
+                        if (resources[cellInfo] && resources[cellInfo[a][0]]) {
                             var url = resources[cellInfo[a][0]].url;
                             var clipZone = resources[cellInfo[a][0]].clipUnits[cellInfo[a][1]];
                             var image = loader.getImage(url);
@@ -212,21 +184,6 @@ var resources = {
         }
     }
 
-    function mousedownRenderLayer (sender, e) {
-        var localLoc = sender.transPointFromAncestorNode(e.offsetLoc, null);
-        var col = Math.round(localLoc.x / this._gridWidth);
-        var row = Math.round(localLoc.y / this._gridHeight);
-        this.setTerrainDatasCell(row, col, this._value);
-    }
-
-    function dbclickRenderLayer (sender, e) {
-        if (this._value == 0) {
-            this._value = 1;
-        } else {
-            this._value = 0;
-        }
-    }
-
     hy.game = hy.game || {};
     hy.game.Map = hy.extend(hy.Node);
     hy.game.Map.prototype.defaultClipEnable = true;
@@ -242,6 +199,7 @@ var resources = {
         this._col = hy.util.dataType.isUndefined(config.col) ? this.defaultCol : config.col;
         this._gridWidth = hy.util.dataType.isUndefined(config.gridWidth) ? this.defaultGridWidth : config.gridWidth;
         this._gridHeight = hy.util.dataType.isUndefined(config.gridHeight) ? this.defaultGridHeight : config.gridHeight;
+        this._terrainRes = hy.util.dataType.isUndefined(config.terrainRes) ? null : config.terrainRes;
         this._terrainDatas = hy.util.dataType.isUndefined(config.terrainDatas) ? [] : config.terrainDatas;
         this._terrainDatasCompiled = [];
         this._value = 1;
@@ -260,8 +218,6 @@ var resources = {
         });
         this._renderLayer.addObserver(hy.event.name.PAINT, this, paintGrid, Infinity);
         this._renderLayer.addObserver(hy.event.name.PAINT, this, paintTerrain, 0);
-        this._renderLayer.addObserver(hy.event.name.MOUSEDOWN, this, mousedownRenderLayer, 0);
-        this._renderLayer.addObserver(hy.event.name.DBLCLICK, this, dbclickRenderLayer, 0);
         this.addChildNodeAtLayer(this._renderLayer, 0);
     }
     hy.game.Map.prototype.setRow = function (row) {
@@ -299,6 +255,14 @@ var resources = {
     }
     hy.game.Map.prototype.getGridHeight = function () {
         return this._gridHeight;
+    }
+    hy.game.Map.prototype.setTerrainRes = function (res) {
+        if (this._terrainRes != res) {
+            this._terrainRes = res;
+        }
+    }
+    hy.game.Map.prototype.getTerrainRes = function () {
+        return this._terrainRes;
     }
     hy.game.Map.prototype.setTerrainDatas = function (datas) {
         if (this._terrainDatas != datas) {
@@ -414,6 +378,9 @@ var resources = {
         } else {
             return null;
         }
+    }
+    hy.game.Map.prototype.getRenderLayer = function () {
+        return this._renderLayer;
     }
 
 }(hy, window, document);

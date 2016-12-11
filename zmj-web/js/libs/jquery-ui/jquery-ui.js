@@ -13506,11 +13506,11 @@
                         "mousedown": "_mouseDownTabBtn",
                         "mouseup": "_mouseUpTabBtn"
                     });
+                    this._on(document, {
+                        "click": "_clickDocument"
+                    });
+                    this.tablist.prepend(this._$moreBtn);
                 }
-                this._on(document, {
-                    "click": "_clickDocument"
-                });
-                this.tablist.prepend(this._$moreBtn);
             }
             // Avoid memory leaks (#10056)
             if (prevTabs) {
