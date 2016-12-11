@@ -13495,10 +13495,10 @@
             if (this.options.isCustom) {
                 if (this._$moreBtn == null) {
                     this._$moreBtn = $("<button>")
-                        .append($("<span>").addClass("ui-icon ui-icon-carat-1-e"))
+                        .append($("<span>").addClass("ui-icon ui-icon-carat-1-s"))
                         .addClass("ui-state-default")
                         .css({
-                            "border": "none"
+                            "border-bottom-width": 0
                         });
                     this._on(this._$moreBtn, {
                         "mouseover": "_mouseOverTabBtn",
@@ -13549,7 +13549,7 @@
                 this._$moreMenu.contextmenu().css({
                     "position": "absolute",
                     "right": "2px",
-                    "top": "2.2em",
+                    "top": "2.3em",
                     "z-index": 999999
                 });
                 this.element.append(this._$moreMenu);
