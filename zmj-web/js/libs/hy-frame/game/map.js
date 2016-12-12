@@ -160,7 +160,7 @@ var hy = hy || {};
                         }
                     }
                     for (var a = 0, size = cellInfo.length; a < size; ++a) {
-                        if (resources[cellInfo] && resources[cellInfo[a][0]]) {
+                        if (resources[cellInfo[a][0]]) {
                             var url = resources[cellInfo[a][0]].url;
                             var clipZone = resources[cellInfo[a][0]].clipUnits[cellInfo[a][1]];
                             var image = loader.getImage(url);
@@ -213,7 +213,7 @@ var hy = hy || {};
             anchorY: 0,
             rotateZ: 0,
             responseEnable: true,
-            dragEnable: true,
+            // dragEnable: true,
             responseZone: {minX: -Infinity, maxX: Infinity, minY: -Infinity, maxY: Infinity}
         });
         this._renderLayer.addObserver(hy.event.name.PAINT, this, paintGrid, Infinity);

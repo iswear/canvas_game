@@ -1,47 +1,69 @@
 +function ($, hy, win, doc) {
 
+    /**
+     * jquery ui 层
+     * @type {{}}
+     */
     var g_uiModular = {};
-    var g_gameModular = {};
 
-    +function (modular) {
-
-        modular.menu = $("#ID_app_menu").menu().on("menuselect", function(event, ui){
+    // 菜单
+    g_uiModular.menu = (function () {
+        return $("#ID_app_menu").menu().on("menuselect", function(event, ui){
             var item = ui.item;
             if (item.attr("data-menu-path") == "1_2") {
-                if (app_dialog_open.dialog("isOpen")) {
-                    app_dialog_open.dialog("close");
+                if (g_uiModular.dialog_open.dialog("isOpen")) {
+                    g_uiModular.dialog_open.dialog("close");
                 } else {
-                    app_dialog_open.dialog("open");
+                    g_uiModular.dialog_open.dialog("open");
                 }
             } else if (item.attr("data-menu-path") == "1_3") {
-                if (app_dialog_save.dialog("isOpen")) {
-                    app_dialog_save.dialog("close");
+                if (g_uiModular.dialog_save.dialog("isOpen")) {
+                    g_uiModular.dialog_save.dialog("close");
                 } else {
-                    app_dialog_save.dialog("open");
+                    g_uiModular.dialog_save.dialog("open");
                 }
             }
         });
+    })();
 
-        modular.toolbar = $("#ID_app_toolbar").toolbar();
+    // 工具栏
+    g_uiModular.toolbar = (function () {
+        return $("#ID_app_toolbar").toolbar();
+    })();
 
-        modular.view = $("#ID_app_view").layout({
+    // 主界面布局
+    g_uiModular.layout = (function () {
+        return $("#ID_app_layout").layout({
             eastWidth: 250,
             southHeight: 120
         });
+    })();
 
-        modular.tabs_document = $("#ID_app_view_center").tabs({
+    // 文档区域tabs
+    g_uiModular.tabs_document = (function () {
+        return $("#ID_app_layout_center").tabs({
             isCustom: true
         });
+    })();
 
-        modular.tabs_res = $("#ID_app_view_right").tabs({
+    // 资源区域tabs
+    g_uiModular.tabs_resources = (function () {
+        return $("#ID_app_layout_east").tabs({
             isCustom: true
         });
+    })();
 
-        modular.tabs_editor = $("#ID_app_view_bottom").tabs({
+    // 控制界面tabs
+    g_uiModular.tabs_controls = (function () {
+        return $("#ID_app_layout_bottom").tabs({
             isCustom: true
         });
+    })();
 
-        modular.dialog_open = $("#ID_dialog_open").dialog({
+
+    // 打开文档dialog
+    g_uiModular.dialog_open = (function () {
+        return $("#ID_dialog_open").dialog({
             autoOpen: false,
             modal: true,
             appendTo: "#ID_app",
@@ -64,8 +86,10 @@
                 }
             ]
         });
+    })();
 
-        modular.dialog_save = $("#ID_dialog_save").dialog({
+    g_uiModular.dialog_save = (function () {
+        return $("#ID_dialog_save").dialog({
             autoOpen: false,
             modal: true,
             appendTo: "#ID_app",
@@ -88,11 +112,21 @@
                 }
             ]
         });
+    })();
 
-    }(g_uiModular);
+    // 保存文档dialog
 
+    /**
+     * hyframe 层
+     * @type {{}}
+     */
 
-    +function (modular) {
+    var g_gameModular = {};
+
+    g_gameModular.map = (function () {
+
+        var isMouseMapDown = false;
+        var mapStatus = 1;
 
         function layoutMapRoot (sender, zone) {
             this._map.setX(0);
@@ -100,14 +134,20 @@
             this._map.setWidth(zone.width);
             this._map.setHeight(zone.height);
         }
-        
+
         function mousedownMap(sender, e) {
-            modular.param.isMouseMapDown = true;
+            isMouseMapDown = true;
+            if (mapStatus == 1) {
+                var localLoc = sender.transPointFromAncestorNode(e.offsetLoc, null);
+                var col = Math.round(localLoc.x / this._gridWidth);
+                var row = Math.round(localLoc.y / this._gridHeight);
+                this.setTerrainDatasCell(row, col, 1);
+            }
         }
-        
+
         function mousemoveMap(sender, e) {
-            if (modular.param.isMouseMapDown) {
-                if (modular.param.a_mapStatus == 1) {
+            if (isMouseMapDown) {
+                if (mapStatus == 1) {
                     var localLoc = sender.transPointFromAncestorNode(e.offsetLoc, null);
                     var col = Math.round(localLoc.x / this._gridWidth);
                     var row = Math.round(localLoc.y / this._gridHeight);
@@ -117,12 +157,11 @@
         }
 
         function mouseupMap(sender, e) {
-            modular.param.isMouseMapDown = false;
+            isMouseMapDown = false;
         }
 
-        modular.class = {};
-        modular.class.MapRoot = hy.extend(hy.gui.View);
-        modular.class.MapRoot.prototype.init = function (config) {
+        var Map = hy.extend(hy.gui.View);
+        Map.prototype.init = function (config) {
             this.superCall("init", [config]);
             this._map = new hy.game.Map({
                 terrainRes: {
@@ -160,41 +199,28 @@
             this.addChildNodeAtLayer(this._map, 0);
             this.addObserver(hy.event.name.LAYOUTSUBNODES, this, layoutMapRoot, 0);
         }
-        modular.class.MapRoot.prototype.getMap = function () {
-            return this._map;
-        }
 
+        return new Map({});
 
-        modular.param = {};
-        modular.param.a_mapStatus = 0;  //0移动 1笔刷 2精灵建筑摆放
-        modular.param.a_isMouseMapDown = false;
+    })();
+    
+    g_gameModular.sprite = (function () {
+        return 1;
+    })();
 
-        modular.param.m_mapRoot = new modular.class.MapRoot({});
-        modular.param.m_appDocument = new hy.Application({
+    g_gameModular.application = (function () {
+        return new hy.Application({
             width: 400,
             height: 300,
             scaleMode: 0,
             canvas: doc.getElementById("ID_app_canvas")
         });
-        modular.param.m_appDocument.run(modular.param.m_mapRoot);
-
-        modular.api = {};
-        modular.api.setMapStatus = function (status) {
-            if (status == 0) {
-                modular.param.a_mapStatus = status;
-                modular.param.m_mapRoot.getMap().getRenderLayer().setDragEnable(true);
-            } else if (status == 1) {
-                modular.param.a_mapStatus = status;
-                modular.param.m_mapRoot.getMap().getRenderLayer().setDragEnable(false);
-            } else if (status == 3) {
-                modular.param.a_mapStatus = status;
-                modular.param.m_mapRoot.getMap().getRenderLayer().setDragEnable(true);
-            }
-        }
-
-    }(g_gameModular);
-
-    g_gameModular.api.setMapStatus(1);
+    })();
+    
+    
+    + function () {
+        g_gameModular.application.run(g_gameModular.map);
+    }();
 
 
 }(jQuery, hy, window, document);
