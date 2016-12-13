@@ -6485,8 +6485,7 @@
             this.mouseHandled = false;
             this.element
                 .uniqueId()
-                .addClass("ui-contextmenu ui-widget ui-widget-content")
-                .toggleClass("ui-contextmenu-icons", !!this.element.find(".ui-icon").length)
+                .addClass("ui-contextmenu ui-widget ui-widget-content ui-contextmenu-icons")
                 .attr({
                     role: this.options.role,
                     tabIndex: 0
@@ -6710,9 +6709,7 @@
                 that = this,
                 icon = this.options.icons.submenu,
                 submenus = this.element.find(this.options.menus);
-
-            this.element.toggleClass("ui-contextmenu-icons", !!this.element.find(".ui-icon").length);
-
+            
             // Initialize nested menus
             submenus.filter(":not(.ui-contextmenu)")
                 .addClass("ui-contextmenu ui-widget ui-widget-content ui-front")
