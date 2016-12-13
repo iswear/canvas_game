@@ -60,6 +60,37 @@
         });
     })();
 
+    // 编辑工具树
+    g_uiModular.tree_tool = (function () {
+        return $("#ID_app_panel_tool").tree({
+            nodeDraggable: false,
+            nodeEditable: false,
+            collapseIcon: null,
+            expandIcon: null,
+            leafIcon: null,
+            root: {
+                text: '工具',
+                leaf: false,
+                expanded: false,
+                children: [
+                    {
+                        text: '选择工具',
+                        leaf: true
+                    } , {
+                        text: '地形笔刷',
+                        leaf: true
+                    } , {
+                        text: '游戏精灵',
+                        leaf: true
+                    } , {
+                        text: '游戏音效',
+                        leaf: true
+                    }
+                ]
+            }
+        });
+    })();
+
 
     // 打开文档dialog
     g_uiModular.dialog_open = (function () {
