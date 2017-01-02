@@ -13524,20 +13524,24 @@
                     this._$moreMenu.contextmenu("destroy");
                     this._$moreMenu.remove();
                     this._$moreMenu = null;
+                    this._$moreBtn.removeClass("ui-state-focus ui-state-active").addClass("ui-state-default");
                 }
             }
         },
         _mouseOverTabBtn: function(e) {
-            this._$moreBtn.removeClass("ui-state-default ui-state-active").addClass("ui-state-focus");
+            if (this._$moreMenu == null) {
+                this._$moreBtn.removeClass("ui-state-default ui-state-active").addClass("ui-state-focus");
+            }
         },
         _mouseOutTabBtn: function(e) {
-            this._$moreBtn.removeClass("ui-state-focus ui-state-active").addClass("ui-state-default");
+            if (this._$moreMenu == null) {
+                this._$moreBtn.removeClass("ui-state-focus ui-state-active").addClass("ui-state-default");
+            }
         },
         _mouseDownTabBtn: function(e) {
             this._$moreBtn.removeClass("ui-state-default ui-state-focus").addClass("ui-state-active");
         },
         _mouseUpTabBtn: function(e) {
-            this._$moreBtn.removeClass("ui-state-default ui-state-active").addClass("ui-state-focus");
             if (this._$moreMenu == null) {
                 this._$moreMenu = $("<ul>");
                 for (var i = 0, len = this.anchors.length; i < len; ++i) {
@@ -14437,9 +14441,10 @@
     var tree = $.widget("ui.tree", {
         version: '1.11.4',
         options: {
-            nodeDraggable: false,
-            nodeEditable: false,
+            nodeDraggable: true,
+            nodeEditable: true,
             collapseIcon: null,
+            showIcon: false,
             expandIcon: null,
             leafIcon: null,
             root: {
@@ -14458,20 +14463,20 @@
         },
         _createTreeNode: function ($element, node) {
             if (node) {
+                var treeNodeTextClass = this.options.showIcon ? "ui-tree-text ui-tree-sign-icon-space" : "ui-tree-text";
                 var $treeNode = $("<li>").addClass("ui-tree-node");
                 var $treeNodeContent = $("<div>").addClass("ui-tree-content");
                 var $treeNodeControlIcon = $("<span>").addClass("ui-tree-control-icon");
-                var $treeNodeSignIcon = $("<span>").addClass("ui-tree-sign-icon");
-                var $treeNodeText = $("<span>").addClass("ui-tree-text");
+                var $treeNodeText = $("<span>").addClass(treeNodeTextClass);
                 var $treeNodeChildren = $("<ul>").addClass("ui-tree-node-children");
 
                 $treeNodeText.text(node.text);
                 $treeNode.data("nodeData", node);
 
                 if ($treeNodeContent.get(0) == this._selectedElement) {
-                    $treeNodeContent.addClass("ui-state-active ui-corner-s-all");
+                    $treeNodeContent.addClass("ui-state-active");
                 } else {
-                    $treeNodeContent.removeClass("ui-state-active ui-corner-s-all");
+                    $treeNodeContent.removeClass("ui-state-active");
                 }
 
                 if (node.expanded) {
@@ -14491,7 +14496,11 @@
                         this._createTreeNode($treeNodeChildren, children[i]);
                     }
                 }
-                $treeNode.append($treeNodeContent.append($treeNodeControlIcon).append($treeNodeSignIcon).append($treeNodeText)).append($treeNodeChildren);
+                if (this.options.showIcon) {
+                    var $treeNodeSignIcon = $("<span>").addClass("ui-tree-sign-icon");
+                    $treeNodeContent.append($treeNodeSignIcon);
+                }
+                $treeNode.append($treeNodeContent.append($treeNodeControlIcon).append($treeNodeText)).append($treeNodeChildren);
                 $element.append($treeNode);
                 this._on($treeNodeContent, {
                     mousedown: "_nodeContentMouseDown",
@@ -14521,14 +14530,14 @@
         },
         _nodeContentMouseDown: function (event) {
             var offsetX = event.pageX - $.getElementPageOffset(event.currentTarget).left;
-            if (offsetX > 16) {
+            if (offsetX > 0) {
                 var treeNodeContent = event.currentTarget;
                 if (this._selectedElement != treeNodeContent) {
                     if (this._selectedElement) {
-                        $(this._selectedElement).removeClass("ui-state-active ui-corner-s-all");
+                        $(this._selectedElement).removeClass("ui-state-active");
                     }
                     this._selectedElement = treeNodeContent;
-                    $(treeNodeContent).addClass("ui-state-active ui-corner-s-all");
+                    $(treeNodeContent).addClass("ui-state-active");
                 }
                 if (this.options.nodeDraggable) {
                     this._nodeDragging = true;
@@ -14543,13 +14552,13 @@
                     var outerHeight = $treeNodeContent.outerHeight();
                     var offsetY = event.pageY - $.getElementPageOffset(treeNodeContent).top;
                     if (offsetY <= outerHeight / 4) {
-                        $treeNodeContent.removeClass("ui-tree-content-insert-after ui-tree-content-insert-at ui-corner-s-all")
+                        $treeNodeContent.removeClass("ui-tree-content-insert-after ui-tree-content-insert-at")
                             .addClass("ui-tree-content-insert-before");
                     } else if (offsetY < outerHeight * 3 / 4) {
                         $treeNodeContent.removeClass("ui-tree-content-insert-before ui-tree-content-insert-after")
-                            .addClass("ui-tree-content-insert-at ui-corner-s-all");
+                            .addClass("ui-tree-content-insert-at");
                     } else {
-                        $treeNodeContent.removeClass("ui-tree-content-insert-before ui-tree-content-insert-at ui-corner-s-all")
+                        $treeNodeContent.removeClass("ui-tree-content-insert-before ui-tree-content-insert-at")
                             .addClass("ui-tree-content-insert-after");
                     }
                 }

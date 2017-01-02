@@ -63,7 +63,6 @@
     // 编辑工具树
     g_uiModular.tree_tool = (function () {
         return $("#ID_app_panel_tool").tree({
-            nodeDraggable: false,
             nodeEditable: false,
             collapseIcon: null,
             expandIcon: null,
@@ -84,7 +83,13 @@
                         leaf: true
                     } , {
                         text: '游戏音效',
-                        leaf: true
+                        leaf: false,
+                        children: [
+                            {
+                                text: 'item1',
+                                leaf: true
+                            }
+                        ]
                     }
                 ]
             }
@@ -252,6 +257,5 @@
     + function () {
         g_gameModular.application.run(g_gameModular.map);
     }();
-
 
 }(jQuery, hy, window, document);
