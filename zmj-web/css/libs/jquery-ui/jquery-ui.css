@@ -924,7 +924,7 @@ body .ui-tooltip {
 
 .ui-tree-node .ui-tree-content {
 	position: relative;
-	border: none;
+	border: solid 1px transparent;
 	padding: .3em 4px .3em 2px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
