@@ -25,11 +25,8 @@
      * http://api.jqueryui.com/category/ui-core/
      */
 
-
-// $.ui might exist from components with no dependencies, e.g., $.ui.position
-
+// Hu Jianbing extend
     $.context_temp = $.context_temp || {};
-
     $.getScrollbarWidth = function () {
         if (!$.context_temp.scrollbarWidth) {
             var ele = $("<div>");
@@ -60,6 +57,7 @@
         }
         return {left: left, top: top};
     }
+// $.ui might exist from components with no dependencies, e.g., $.ui.position
     $.ui = $.ui || {};
 
     $.extend($.ui, {
@@ -14607,6 +14605,13 @@
             }
             this._nodeDragging = false;
             this._mouseOverElement = null;
+        }
+    });
+
+    var list = $.widget("ui.list", {
+        version: "1.11.4",
+        options: {
+
         }
     });
 

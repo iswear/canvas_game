@@ -200,7 +200,7 @@
 }
 .ui-accordion .ui-accordion-header {
 	display: block;
-	cursor: pointer;
+	cursor: default;
 	position: relative;
 	margin: 2px 0 0 0;
 	padding: .5em .5em .5em .7em;
@@ -236,7 +236,7 @@
 	padding: 0;
 	line-height: normal;
 	margin-right: .1em;
-	cursor: pointer;
+	cursor: default;
 	vertical-align: middle;
 	text-align: center;
 	overflow: visible; /* removes extra width in IE */
@@ -422,7 +422,7 @@ button.ui-button::-moz-focus-inner {
 .ui-datepicker .ui-datepicker-buttonpane button {
 	float: right;
 	margin: .5em .2em .4em;
-	cursor: pointer;
+	cursor: default;
 	padding: .2em .6em .3em .6em;
 	width: auto;
 	overflow: visible;
@@ -547,7 +547,7 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-dialog .ui-dialog-buttonpane button {
 	margin: .5em .4em .5em 0;
-	cursor: pointer;
+	cursor: default;
 }
 .ui-dialog .ui-resizable-se {
 	width: 12px;
@@ -573,7 +573,7 @@ button.ui-button::-moz-focus-inner {
 	position: relative;
 	margin: 0;
 	padding: 3px 2em 3px .4em;
-	cursor: pointer;
+	cursor: default;
 	min-height: 0; /* support: IE7 */
 	/* support: IE10, see #8844 */
 	list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
@@ -661,7 +661,7 @@ button.ui-button::-moz-focus-inner {
 	overflow: hidden;
 	position: relative;
 	text-decoration: none;
-	cursor: pointer;
+	cursor: default;
 }
 .ui-selectmenu-button span.ui-icon {
 	right: 0.5em;
@@ -898,7 +898,7 @@ button.ui-button::-moz-focus-inner {
 .ui-tabs-nav li.ui-state-disabled .ui-tabs-anchor,
 .ui-tabs-nav li.ui-tabs-loading .ui-tabs-anchor,
 .ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-active .ui-tabs-anchor {
-	cursor: pointer;
+	cursor: default;
 }
 
 .ui-tooltip {
