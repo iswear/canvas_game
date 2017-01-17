@@ -1,0 +1,33 @@
+
+<!doctype html>
+<html lang="us">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Example Page</title>
+    <link href="../../../../css/libs/jquery-ui/jquery-ui.css" rel="stylesheet">
+</head>
+<body>
+<button id="button1">feafea</button>
+<button id="button2"></button>
+<button id="button3"></button>
+<script src="../../jquery/jquery.js"></script>
+<script src="../jquery-ui.js"></script>
+<script>
+
+//    $("#button1").button({});
+
+    $("#button2").button({
+        icons: { primary: "ui-icon-gear", secondary: "ui-icon-triangle-1-s" },
+        label: 'helloworld',
+        text: false
+    }).on("click",function (event) {
+        alert("hello world");
+    });
+//
+//    $("#button3").button({
+//        icons: { primary: "ui-icon-gear", secondary: "ui-icon-triangle-1-s" },
+//        text: false
+//    });
+</script>
+</body>
+</html>
