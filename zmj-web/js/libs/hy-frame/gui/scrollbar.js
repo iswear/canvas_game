@@ -63,7 +63,7 @@ var hy = hy || {};
     hy.gui.ScrollBar.prototype.defaultResponseEnable = false;
     hy.gui.ScrollBar.prototype.defaultBackgroundColor = hy.gui.colors.SILVER;
     hy.gui.ScrollBar.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._paddingLeft = hy.util.dataType.isUndefined(config.paddingLeft) ? this.defaultPaddingLeft : config.paddingLeft;
         this._paddingRight = hy.util.dataType.isUndefined(config.paddingRight) ? this.defaultPaddingRight : config.paddingRight;
         this._paddingTop = hy.util.dataType.isUndefined(config.paddingTop) ? this.defaultPaddingTop : config.paddingTop;

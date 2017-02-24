@@ -6,7 +6,7 @@ var hy = hy || {};
     hy.net = hy.net || {};
     hy.net.Ajax = hy.extend(hy.Object);
     hy.net.Ajax.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._URL = hy.util.dataType.isUndefined(config.URL) ? null : config.URL;
         this._args = hy.util.dataType.isUndefined(config.args) ? null : config.args;
         this._mode = hy.util.dataType.isUndefined(config.mode) ? null : config.mode;
@@ -81,7 +81,7 @@ var hy = hy || {};
         this._target = null;
         this._xmlHttp.onreadystatechange = null;
         this._xmlHttp = null;
-        this.superCall("clean");
+        this.super("clean");
     }
 
 })(hy);

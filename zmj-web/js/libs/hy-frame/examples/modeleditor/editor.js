@@ -4,7 +4,7 @@
     modeleditor.class = modeleditor.class || {};
     modeleditor.class.ActionListView = hy.extend(hy.gui.View);
     modeleditor.class.ActionListView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._addBtn = new hy.gui.Button({
             cornorRadius: 3,
             normalColor: null,
@@ -63,7 +63,7 @@
 
     modeleditor.class.ModelTreeRule = hy.extend(hy.gui.View);
     modeleditor.class.ModelTreeRule.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._blankView = new hy.gui.View({
             backgroundColor: hy.gui.colors.PUREWHITE
         });
@@ -101,7 +101,7 @@
 
     modeleditor.class.ModelTreeNode = hy.extend(hy.gui.TreeNodeView);
     modeleditor.class.ModelTreeNode.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._nodeIcon = new hy.gui.ImageView({responseEnable: false});
         this._nodeLabel = new hy.gui.Label({responseEnable: false, textHorAlign: hy.gui.TEXT_HORALIGN_LEFT});
         this._nodeExpandIcon = new hy.gui.View({responseEnable: true});
@@ -184,7 +184,7 @@
     modeleditor.class.ModelTree = hy.extend(hy.gui.TreeView);
     modeleditor.class.ModelTree.prototype.defaultNodeHeight = 20;
     modeleditor.class.ModelTree.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._paddingTop = 23;
         this._nodeHeight = this.isUndefined(config.nodeHeight) ? this.defaultNodeHeight : config.nodeHeight;
         this._modelTreeRule = new modeleditor.class.ModelTreeRule({});
@@ -311,7 +311,7 @@
 
     modeleditor.class.ModelEditorView = hy.extend(hy.gui.View);
     modeleditor.class.ModelEditorView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._nodeAddBtn = new hy.gui.Button({
             normalColor: null,
             hoverColor: hy.gui.colors.BLUE,
@@ -436,7 +436,7 @@
 
     modeleditor.class.TextureView = hy.extend(hy.gui.View);
     modeleditor.class.TextureView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._goBtn = new hy.gui.Button({
             normalColor: null,
             hoverColor: hy.gui.colors.BLUE,
@@ -535,7 +535,7 @@
 
     modeleditor.class.MainWin = hy.extend(hy.gui.View);
     modeleditor.class.MainWin.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._actionEditStatus = {name: null, running: false, selectedframe: -1};
         this._htmlBotMenu = {htmlNode: null};
         this._htmlFullMask = {htmlNode: null, curDialogNode: null, type: 0, action: 0};
@@ -631,7 +631,7 @@
         this.addChildNodeAtLayer(this._textureManagerWin, 1);
     }
     modeleditor.class.MainWin.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         this._syncModelInfo();
     }
     modeleditor.class.MainWin.prototype.openActionEditor = function (actionName) {

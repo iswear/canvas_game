@@ -18,7 +18,7 @@ var hy = hy || {};
     hy.gui.Button.prototype.defaultNormalColor = null;
     hy.gui.Button.prototype.defaultHoverColor = hy.gui.colors.DBLUE;
     hy.gui.Button.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._normalColor = hy.util.dataType.isUndefined(config.normalColor) ? this.defaultNormalColor : config.normalColor;
         this._hoverColor = hy.util.dataType.isUndefined(config.hoverColor) ? this.defaultHoverColor : config.hoverColor;
 

@@ -194,7 +194,7 @@ var hy = hy || {};
     hy.game.Map.prototype.defaultAnchorX = 0;
     hy.game.Map.prototype.defaultAnchorY = 0;
     hy.game.Map.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._row = hy.util.dataType.isUndefined(config.row) ? this.defaultRow : config.row;
         this._col = hy.util.dataType.isUndefined(config.col) ? this.defaultCol : config.col;
         this._gridWidth = hy.util.dataType.isUndefined(config.gridWidth) ? this.defaultGridWidth : config.gridWidth;

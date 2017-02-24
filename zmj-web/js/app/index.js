@@ -198,7 +198,7 @@
 
         var Map = hy.extend(hy.gui.View);
         Map.prototype.init = function (config) {
-            this.superCall("init", [config]);
+            this.super("init", [config]);
             this._map = new hy.game.Map({
                 terrainRes: {
                     "1":{

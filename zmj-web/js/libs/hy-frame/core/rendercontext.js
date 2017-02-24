@@ -52,7 +52,7 @@ var hy = hy || {};
     hy.RenderContext.prototype.defaultWidth = 300;
     hy.RenderContext.prototype.defaultHeight = 200;
     hy.RenderContext.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._width = hy.util.dataType.isUndefined(config.width) ? this.defaultWidth : config.width;
         this._height = hy.util.dataType.isUndefined(config.height) ? this.defaultHeight : config.height;
         this._canvas = hy.util.dataType.isUndefined(config.canvas) ? (document.createElement("canvas")) : config.canvas;
@@ -61,7 +61,7 @@ var hy = hy || {};
         this.__statusCur = {};
     }
     hy.RenderContext.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         syncCanvasSizeInfo.call(this);
     }
     hy.RenderContext.prototype.getCanvas = function () {
@@ -351,7 +351,7 @@ var hy = hy || {};
         this.__context = null;
         this.__statusCur = null;
         this.__statusStack = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
 

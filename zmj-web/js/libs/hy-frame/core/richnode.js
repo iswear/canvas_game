@@ -569,7 +569,7 @@ var hy = hy || {};
     hy.RichNode.prototype.defaultResizeStyle = 0;
     hy.RichNode.prototype.defaultAdjustLayoutStyle = 0;//0:gamenode布局模式;1:guinode布局模式
     hy.RichNode.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._anchorMoveEnable = hy.util.dataType.isUndefined(config.anchorMoveEnable) ? this.defaultAnchorMoveEnable : config.anchorMoveEnable;
         this._resizeEnable = hy.util.dataType.isUndefined(config.resizeEnable) ? this.defaultResizeEnable : config.resizeEnable;
         this._rotateEnable = hy.util.dataType.isUndefined(config.rotateEnable) ? this.defaultRotateEnable : config.rotateEnable;
@@ -577,7 +577,7 @@ var hy = hy || {};
         this._adjustLayoutStyle = hy.util.dataType.isUndefined(config.adjustLayoutStyle) ? this.defaultAdjustLayoutStyle : config.adjustLayoutStyle;
     }
     hy.RichNode.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         syncResizeEnv.call(this);
         syncRotateEnv.call(this);
         syncAnchorEnv.call(this);

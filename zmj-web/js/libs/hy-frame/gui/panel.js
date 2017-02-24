@@ -29,7 +29,7 @@ var hy = hy || {};
     hy.gui.Panel = hy.extend(hy.gui.View);
     hy.gui.Panel.prototype.defaultTitle = "panel";
     hy.gui.Panel.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._icon = new hy.gui.ImageView({});
         this._titleLabel = new hy.gui.Label({textColor: hy.gui.colors.PUREWHITE, textFont: "12px 宋体"});
 

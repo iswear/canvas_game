@@ -156,7 +156,7 @@ var hy = hy || {};
     hy.game.Unit.prototype.defaultAnchorY = 0.5;
     hy.game.Unit.prototype.defaultName = "unit";
     hy.game.Unit.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._name = hy.util.dataType.isUndefined(config.name) ? this.defaultName : config.name;
         this._image = hy.util.dataType.isUndefined(config.image) ? null : config.image;
         this._mirror = hy.util.dataType.isUndefined(config.mirror) ? hy.game.MIRROR_NONE : config.mirror;

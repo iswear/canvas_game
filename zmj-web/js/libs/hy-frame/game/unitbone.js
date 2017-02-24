@@ -26,12 +26,12 @@ var hy = hy || {};
     hy.game = hy.game || {};
     hy.game.UnitBone = hy.extend(hy.game.Unit);
     hy.game.UnitBone.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this.addObserver(hy.event.name.HEIGHTCHG, this, syncUnitResponseZone, 0);
         this.addObserver(hy.event.name.PAINT, this, paintUnitBone, 0);
     }
     hy.game.UnitBone.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         syncUnitResponseZone.call(this);
     }
 

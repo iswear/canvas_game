@@ -185,7 +185,7 @@ var hy = hy || {};
     hy.Application.prototype.defaultWinWidth = 600;
     hy.Application.prototype.defaultWinHeight = 400;
     hy.Application.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._winWidth = hy.util.dataType.isUndefined(config.winWidth) ? this.defaultWinWidth : config.winWidth;
         this._winHeight = hy.util.dataType.isUndefined(config.winHeight) ? this.defaultWinHeight : config.winHeight;
         this._canvasWidth = 0;
@@ -245,7 +245,7 @@ var hy = hy || {};
         this._runNodeInfo.rootNode.addChildNodeAtLayer(this._contextMenu, 1);
     }
     hy.Application.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         checkSyncAppSizeEnv.call(this);
     }
     hy.Application.prototype.getWinWidth = function () {
@@ -652,7 +652,7 @@ var hy = hy || {};
         this._actionManager = null;
         this._fileLoader.purge();
         this._fileLoader = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
 })(hy, window, document);

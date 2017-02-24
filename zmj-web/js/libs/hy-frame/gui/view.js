@@ -81,7 +81,7 @@ var hy = hy || {};
     hy.gui.View.prototype.defaultAnchorY = 0;
     hy.gui.View.prototype.defaultClipEnable = true;
     hy.gui.View.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._backgroundColor = hy.util.dataType.isUndefined(config.backgroundColor) ? this.defaultBackgroundColor : config.backgroundColor;
         this._borderWidth = hy.util.dataType.isUndefined(config.borderWidth) ? this.defaultBorderWidth : config.borderWidth;
         this._borderColor = hy.util.dataType.isUndefined(config.borderColor) ? this.defaultBorderColor : config.borderColor;
@@ -93,7 +93,7 @@ var hy = hy || {};
         this.addObserver(hy.event.name.PAINT, this, paintViewBkAndBorder);
     }
     hy.gui.View.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         syncViewResponseZoneX.call(this);
         syncViewResponseZoneY.call(this);
     }

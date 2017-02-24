@@ -7,7 +7,7 @@ var hy = hy || {};
     hy.gui.ListItemView.prototype.defaultReuseIdentity = "listitem";
     hy.gui.ListItemView.prototype.defaultResponseEnable = true;
     hy.gui.ListItemView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._reuseIdentity = hy.util.dataType.isUndefined(config.reuseIdentity) ? this.defaultReuseIdentity : config.reuseIdentity;
         this._itemIndex = -1;
     }

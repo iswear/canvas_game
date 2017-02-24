@@ -6,7 +6,7 @@ var hy = hy || {};
     hy.game.Model = hy.extend(hy.game.Unit);
     hy.game.Model.prototype.defaultName = "model";
     hy.game.Model.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._actionNames = hy.util.isUndefined(config.actionNames) ? [] : config.actionNames;
     }
     hy.game.Model.prototype.getActionNames = function () {

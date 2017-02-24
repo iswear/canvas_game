@@ -5,7 +5,7 @@ var hy = hy || {};
     hy.action = hy.action || {};
     hy.action.Manager = hy.extend(hy.Object);
     hy.action.Manager.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._actionBinders = [];
         this._paused = false;
     }
@@ -66,12 +66,12 @@ var hy = hy || {};
     }
     hy.action.Manager.prototype.purge = function () {
         this._actionBinders = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
     hy.action.Binder = hy.extend(hy.Object);
     hy.action.Binder.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._sprite = hy.util.dataType.isUndefined(config.sprite) ? null : config.sprite;
         this._action = hy.util.dataType.isUndefined(config.action) ? null : config.action;
         this._target = hy.util.dataType.isUndefined(config.target) ? null : config.target;
@@ -138,13 +138,13 @@ var hy = hy || {};
         this._target = null;
         this._callBack = null;
         this._runParams = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
 
     hy.action.Scheduler = hy.extend(hy.Object);
     hy.action.Scheduler.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._target = hy.util.dataType.isUndefined(config.target) ? null : config.target;
         this._callBack = hy.util.dataType.isUndefined(config.callBack) ? null : config.callBack;
         this._interval = hy.util.dataType.isUndefined(config.interval) ? 0 : config.interval;
@@ -217,7 +217,7 @@ var hy = hy || {};
         this._target = null;
         this._callBack = null;
         this._param = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
     hy.action.Base = hy.extend(hy.Object);
@@ -226,7 +226,7 @@ var hy = hy || {};
 
     hy.action.Animation = hy.extend(hy.action.Base)
     hy.action.Animation.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._targetOffset = hy.util.dataType.isUndefined(config.targetOffset) ? 0 : config.targetOffset;
         this._offsetFun = eval("(function(t){ return " + (hy.util.dataType.isUndefined(config.offsetFun) ? "0" : config.offsetFun) + "; })");
     };
@@ -244,7 +244,7 @@ var hy = hy || {};
     }
     hy.action.Animation.prototype.purge = function () {
         this._offsetFun = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
     hy.action.MoveX = hy.extend(hy.action.Animation);
@@ -539,7 +539,7 @@ var hy = hy || {};
 
     hy.action.Queue = hy.extend(hy.action.Base);
     hy.action.Queue.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._actions = hy.util.dataType.isUndefined(config.actions) ? [] : config.actions;
     }
     hy.action.Queue.prototype.setActions = function (actions) {

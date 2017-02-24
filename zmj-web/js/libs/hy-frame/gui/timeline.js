@@ -81,7 +81,7 @@ var hy = hy || {};
     hy.gui.Timeline.prototype.defaultDuration = 3;
     hy.gui.Timeline.prototype.defaultClipEnable = false;
     hy.gui.Timeline.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._duration = hy.util.dataType.isUndefined(config.duration) ? this.defaultDuration : config.duration;
         this._keyFrames = hy.util.dataType.isUndefined(config.keyFrames) ? [] : config.keyFrames;
         this._selectedFrame = -1;

@@ -5,7 +5,7 @@ var hy = hy || {};
     hy.html = hy.html || {};
     hy.html.TextBox = hy.extend(hy.Object);
     hy.html.TextBox.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._inputNode = null;
         this._inputNodeVisible = true;
         this._isFocus = false;

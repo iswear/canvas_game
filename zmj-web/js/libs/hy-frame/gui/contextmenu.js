@@ -100,7 +100,7 @@ var hy = hy || {};
     hy.gui.ContextMenu.prototype.defaultBackgroundColor = hy.gui.colors.PUREBLACK;
     hy.gui.ContextMenu.prototype.defaultDataSource = contextMenuDataSource;
     hy.gui.ContextMenu.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this.__readyHidden = true;
         this._items = null;
         this.addObserver(hy.event.name.ITEMMOUSEDOWN, this, mousedownMenuItem, 0);

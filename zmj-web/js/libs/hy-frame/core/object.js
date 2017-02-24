@@ -3,7 +3,7 @@ var hy = hy || {};
 (function (hy, win, doc) {
 
     hy.Object = hy.extend(null);
-    hy.Object.prototype.superCall = function (funName, args) {
+    hy.Object.prototype.super = function (funName, args) {
         if (arguments.length == 1 || !args) {
             args = [];
         }
@@ -24,7 +24,7 @@ var hy = hy || {};
         return ret;
     }
     hy.Object.prototype.init = function (config) {
-        this.superCall("init", [config])
+        this.super("init", [config])
         this._userProperty = {};
     }
     hy.Object.prototype.getUserProperty = function (key) {

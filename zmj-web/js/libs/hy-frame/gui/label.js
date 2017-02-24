@@ -171,7 +171,7 @@ var hy = hy || {};
     hy.gui.Label.prototype.defaultTextPaddingTop = 0;
     hy.gui.Label.prototype.defaultTextPaddingBottom = 0;
     hy.gui.Label.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._text = hy.util.dataType.isUndefined(config.text) ? this.defaultText : config.text;
         this._textFont = hy.util.dataType.isUndefined(config.textFont) ? this.defaultTextFont : config.textFont;
         this._textColor = hy.util.dataType.isUndefined(config.textColor) ? this.defaultTextColor : config.textColor;
@@ -192,7 +192,7 @@ var hy = hy || {};
         this.addObserver(hy.event.name.PAINT, this, paintLabelText, 0);
     }
     hy.gui.Label.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         syncLabelTextFontSizeInvalid.call(this);
         syncLabelRenderCacheInvalid.call(this);
         syncLabelTextLayoutInvalid.call(this);

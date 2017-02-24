@@ -26,7 +26,7 @@ var hy = hy || {};
     hy.gui.SimpleListItemView.prototype.defaultItemEditEnable = false;
     hy.gui.SimpleListItemView.prototype.clipBound = false;
     hy.gui.SimpleListItemView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._itemIcon = new hy.gui.ImageView({responseEnable: false});
         this._itemLabel = new hy.gui.Label({lineNum: 1});
         this.addChildNodeAtLayer(this._itemIcon, 0);

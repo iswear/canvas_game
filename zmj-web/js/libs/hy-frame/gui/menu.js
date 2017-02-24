@@ -50,7 +50,7 @@ var hy = hy || {};
     hy.gui.Menu = hy.extend(hy.gui.View);
     hy.gui.Menu.prototype.defaultResponseEnable = false;
     hy.gui.Menu.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._menuItems = hy.util.dataType.isUndefined(config.menuItems) ? null : config.menuItems;
         this._dropDownItems = [];
         this.__needMallocMenuItems = true;

@@ -51,7 +51,7 @@ var hy = hy || {};
     hy.gui.SimpleTreeNodeView = hy.extend(hy.gui.TreeNodeView);
     hy.gui.SimpleTreeNodeView.prototype.defaultReuseIdentity = "simpletreenode";
     hy.gui.SimpleTreeNodeView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._nodeIcon = new hy.gui.ImageView({responseEnable: false});
         this._nodeLabel = new hy.gui.TextBox({responseEnable: false, textHorAlign: hy.gui.TEXT_HORALIGN_LEFT});
         this._nodeExpandIcon = new hy.gui.View({responseEnable: true});

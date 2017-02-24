@@ -126,7 +126,7 @@ var hy = hy || {};
     hy.gui.ScrollView.prototype.defaultWheelStep = 20;
     hy.gui.ScrollView.prototype.defaultScrollBarVisible = true;
     hy.gui.ScrollView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._wheelStep = hy.util.dataType.isUndefined(config.wheelStep) ? this.defaultWheelStep : config.wheelStep;
         this._scrollBarVisible = hy.util.dataType.isUndefined(config.scrollBarVisible) ? this.defaultScrollBarVisible : config.scrollBarVisible;
 
