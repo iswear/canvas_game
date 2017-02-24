@@ -1,4 +1,4 @@
-+function ($, hy, win, doc) {
+(function ($, hy, win, doc) {
 
     /**
      * jquery ui 层
@@ -258,4 +258,4 @@
         g_gameModular.application.run(g_gameModular.map);
     }();
 
-}(jQuery, hy, window, document);
+})(jQuery, hy, window, document);

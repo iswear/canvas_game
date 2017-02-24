@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     var defaultDataSource = {
         numberOfListItem: function (listView) {
@@ -91,4 +91,4 @@ var hy = hy || {};
     }
 
 
-}(hy, window, document);
+})(hy, window, document);

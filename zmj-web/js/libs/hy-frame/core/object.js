@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.Object = hy.extend(null);
     hy.Object.prototype.superCall = function (funName, args) {
@@ -64,4 +64,4 @@ var hy = hy || {};
         this._userProperty = null;
     }
 
-}(hy, window, document);
+})(hy, window, document);

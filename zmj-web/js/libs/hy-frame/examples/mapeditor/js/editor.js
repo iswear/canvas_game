@@ -1,5 +1,5 @@
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function layoutMapEditor (sender, zone) {
         this._map.setX(0);
@@ -31,4 +31,4 @@
         contextmenu:["呵呵"]
     }));
 
-}(hy, window, document);
+})(hy, window, document);

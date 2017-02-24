@@ -3,7 +3,7 @@
  */
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function mouseoverBtn (sender, e) {
         this.setBackgroundColor(this._hoverColor);
@@ -38,4 +38,4 @@ var hy = hy || {};
         return this._selColor;
     }
 
-}(hy, window, document);
+})(hy, window, document);

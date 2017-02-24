@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function layoutMenuItems (sender, zone) {
         for (var i = 0, count = this._dropDownItems.length; i < count; ++i) {
@@ -68,4 +68,4 @@ var hy = hy || {};
         this.__needMallocMenuItems = true;
     }
 
-}(hy, window, document);
+})(hy, window, document);

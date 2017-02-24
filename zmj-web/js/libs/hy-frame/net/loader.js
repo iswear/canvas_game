@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy) {
+(function (hy) {
 
     function loadCallBack (callBack, target, url, success) {
         if (callBack) {
@@ -174,4 +174,4 @@ var hy = hy || {};
         this._loadedVideos = {};
     }
 
-}(hy);
+})(hy);

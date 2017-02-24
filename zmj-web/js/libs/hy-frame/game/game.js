@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.game = hy.game || {};
     hy.game.frame = hy.game.frame || {};
@@ -22,4 +22,4 @@ var hy = hy || {};
     hy.game.MIRROR_Y = 2;
     hy.game.MIRROR_BOTH = 3;
 
-}(hy, window, document);
+})(hy, window, document);

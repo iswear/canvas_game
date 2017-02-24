@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function syncSplitSpaceViews () {
         if (this._splitViews && this._splitViews.length > 0) {
@@ -240,4 +240,4 @@ var hy = hy || {};
         syncSplitSpaceViews.call(this);
     }
 
-}(hy, window, document);
+})(hy, window, document);

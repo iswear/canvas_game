@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.game = hy.game || {};
     hy.game.Model = hy.extend(hy.game.Unit);
@@ -48,4 +48,4 @@ var hy = hy || {};
         }
     }
 
-}(hy, window, document);
+})(hy, window, document);

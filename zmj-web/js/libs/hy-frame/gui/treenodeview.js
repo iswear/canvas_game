@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.gui = hy.gui || {};
     hy.gui.TreeNodeView = hy.extend(hy.gui.View);
@@ -24,4 +24,4 @@ var hy = hy || {};
         return this._nodePath;
     }
 
-}(hy, window, document);
+})(hy, window, document);

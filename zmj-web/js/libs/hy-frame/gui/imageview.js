@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function paintImageViewImgSubFun (dc, zone, image, srcX, srcY, srcWidth, srcHeight) {
         var width = zone.width;
@@ -90,4 +90,4 @@ var hy = hy || {};
         return this._mirror;
     }
 
-}(hy, window, document);
+})(hy, window, document);

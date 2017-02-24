@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function syncModelResponseZone (sender) {
         var height = this.getHeight() / 2;
@@ -39,4 +39,4 @@ var hy = hy || {};
         syncModelResponseZone.call(this);
     }
 
-}(hy, window, document);
+})(hy, window, document);

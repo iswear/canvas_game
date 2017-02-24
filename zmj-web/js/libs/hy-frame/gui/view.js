@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function readyViewPath (dc, zone) {
         var offset = this._borderWidth / 2;
@@ -133,4 +133,4 @@ var hy = hy || {};
         }
     }
 
-}(hy, window, document);
+})(hy, window, document);

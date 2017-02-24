@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function(hy, win, doc) {
+(function(hy, win, doc) {
 
     function reloadList () {
         if (this.__needReloadList) {
@@ -355,4 +355,4 @@ var hy = hy || {};
         this.__needMallocListView = true;
     }
 
-}(hy, window, document);
+})(hy, window, document);

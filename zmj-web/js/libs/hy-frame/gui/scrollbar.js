@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function dragScrollBar (sender, e) {
         if (this._scrollDirection == 0) {
@@ -129,4 +129,4 @@ var hy = hy || {};
         return {scrolledRate: this.__scrolledRate, visibleRate: this.__visibleRate, overallRate: 1};
     }
 
-}(hy, window, document);
+})(hy, window, document);

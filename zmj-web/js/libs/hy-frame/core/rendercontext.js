@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy) {
+(function (hy) {
 
     function cloneCurStatus () {
         var statusobj = {};
@@ -355,4 +355,4 @@ var hy = hy || {};
     }
 
 
-}(hy);
+})(hy);

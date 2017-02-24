@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function(hy, win, doc) {
+(function(hy, win, doc) {
 
     function syncLabelTextMeasuredLength () {
         this.__textLayoutInfo.singleLineWidth = hy.util.textLayouter.getInstance().getTextLayoutWidth(this._text, this._textFont);
@@ -324,4 +324,4 @@ var hy = hy || {};
     hy.gui.Label.prototype.getTextMeasuredLength = function () {
         return this.__textLayoutInfo.singleLineWidth;
     }
-}(hy, window, document);
+})(hy, window, document);

@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function reloadTree () {
         if (this.__needReloadTree) {
@@ -519,4 +519,4 @@ var hy = hy || {};
         this.__needMallocTreeView = true;
     }
 
-}(hy, window, document);
+})(hy, window, document);

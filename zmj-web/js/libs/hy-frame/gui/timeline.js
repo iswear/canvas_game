@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function sortKeyFrames (keyFrames) {
         for (var i = 1, len = this._keyFrames.length; i < len; ++i) {
@@ -168,4 +168,4 @@ var hy = hy || {};
         }
     }
 
-}(hy, window, document);
+})(hy, window, document);

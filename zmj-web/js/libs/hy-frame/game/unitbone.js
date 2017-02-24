@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function syncUnitResponseZone (sender) {
         var height = this.getHeight() / 2;
@@ -35,4 +35,4 @@ var hy = hy || {};
         syncUnitResponseZone.call(this);
     }
 
-}(hy, window, document);
+})(hy, window, document);

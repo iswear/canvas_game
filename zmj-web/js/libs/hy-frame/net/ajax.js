@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy) {
+(function (hy) {
 
 
     hy.net = hy.net || {};
@@ -84,4 +84,4 @@ var hy = hy || {};
         this.superCall("clean");
     }
 
-}(hy);
+})(hy);

@@ -9,7 +9,7 @@
  */
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function layoutTreeNodeView (sender, zone) {
         var nodeDeepth = this._nodePath.length;
@@ -89,4 +89,4 @@ var hy = hy || {};
         return this._nodeData;
     }
 
-}(hy, window, document);
+})(hy, window, document);

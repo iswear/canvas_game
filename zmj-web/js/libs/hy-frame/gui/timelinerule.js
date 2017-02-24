@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function paintTimelineRule (sender, dc, zone) {
         /*宽度为8*/
@@ -60,4 +60,4 @@ var hy = hy || {};
         return this._selectedFrame;
     }
 
-}(hy, window, document);
+})(hy, window, document);

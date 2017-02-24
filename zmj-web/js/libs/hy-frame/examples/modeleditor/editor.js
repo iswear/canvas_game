@@ -1,4 +1,4 @@
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     var modeleditor = modeleditor || {};
     modeleditor.class = modeleditor.class || {};
@@ -1288,7 +1288,7 @@
     });
     app.run(new modeleditor.class.MainWin({}));
 
-}(hy, window, document);
+})(hy, window, document);
 
 
 

@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function expandedTreeNode (sender, e) {
         if (sender && e.targetNode == sender.getNodeExpandIcon()) {
@@ -142,4 +142,4 @@ var hy = hy || {};
         return this.getSelectedNodePath();
     }
 
-}(hy, window, document);
+})(hy, window, document);

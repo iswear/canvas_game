@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     var body = doc.body;
 
@@ -26,22 +26,5 @@ var hy = hy || {};
         return {width:body.scrollWidth, height:body.scrollHeight};
     }
 
-    hy.util.dom.getParentOffset = function (element) {
-        var offsetLeft = element.offsetLeft;
-        var offsetTop = element.offsetTop;
-        return {left: offsetLeft, top:offsetTop};
-    }
 
-    hy.util.dom.getPageOffset = function (element) {
-        var parent = element;
-        var offsetLeft = 0;
-        var offsetTop = 0;
-        while (parent != null && parent!=body && parent != doc) {
-            offsetLeft += parent.offsetLeft;
-            offsetTop += parent.offsetTop;
-            parent = parent.offsetParent;
-        }
-        return {left: offsetLeft, top: offsetTop};
-    }
-
-}(hy, window, document);
+})(hy, window, document);

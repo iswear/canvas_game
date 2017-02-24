@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.util = hy.util || {};
 
@@ -196,4 +196,4 @@ var hy = hy || {};
         this.superCall("purge", null);
     }
 
-}(hy, window, document);
+})(hy, window, document);

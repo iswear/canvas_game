@@ -7723,7 +7723,6 @@
         version: "1.11.4",
         defaultElement: "<button>",
         options: {
-            disabled: null,
             text: true,
             label: null,
             icons: {
@@ -10554,6 +10553,7 @@
 
             this.uiDialogTitlebar = $("<div>")
                 .addClass("ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix")
+                .css({ "border-width" : 0 })
                 .prependTo(this.uiDialog);
             this._on(this.uiDialogTitlebar, {
                 mousedown: function (event) {

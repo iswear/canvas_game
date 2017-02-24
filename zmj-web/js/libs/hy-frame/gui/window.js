@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function(hy, win, doc) {
+(function(hy, win, doc) {
 
     function layoutWindow (sender, zone) {
         this._icon.setX(zone.minX + 3);
@@ -133,4 +133,4 @@ var hy = hy || {};
         return this._backgroundColor;
     }
 
-}(hy, window, document);
+})(hy, window, document);

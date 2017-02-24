@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function createFullScreenCanvas () {
         var canvas = document.createElement("canvas");
@@ -130,13 +130,13 @@ var hy = hy || {};
             hyevent.pageLoc.x = touch.pageX;
             hyevent.pageLoc.y = touch.pageY;
             if (hyevent.preValid) {
-                var canvasOffset = hy.util.dom.getPageOffset(this._renderCanvas);
+                var canvasOffset = this._renderCanvas.getBoundingClientRect();
                 hyevent.preOffsetLoc.x = hyevent.offsetLoc.x;
                 hyevent.preOffsetLoc.y = hyevent.offsetLoc.y;
                 hyevent.offsetLoc.x = (hyevent.pageLoc.x - canvasOffset.left) * this.getScaleX();
                 hyevent.offsetLoc.y = (hyevent.pageLoc.y - canvasOffset.top) * this.getScaleY();
             } else {
-                var canvasOffset = hy.util.dom.getPageOffset(this._renderCanvas);
+                var canvasOffset = this._renderCanvas.getBoundingClientRect();
                 hyevent.offsetLoc.x = (hyevent.pageLoc.x - canvasOffset.left) * this.getScaleX();
                 hyevent.offsetLoc.y = (hyevent.pageLoc.y - canvasOffset.top) * this.getScaleY();
                 hyevent.preOffsetLoc.x = hyevent.offsetLoc.x;
@@ -164,7 +164,7 @@ var hy = hy || {};
             hyevent.pageLoc.y = e.pageY ? e.pageY : (document.body.scrollTop + e.clientY);
             hyevent.preOffsetLoc.x = hyevent.offsetLoc.x;
             hyevent.preOffsetLoc.y = hyevent.offsetLoc.y;
-            var canvasOffset = hy.util.dom.getPageOffset(this._renderCanvas);
+            var canvasOffset = this._renderCanvas.getBoundingClientRect();
             hyevent.offsetLoc.x = (hyevent.pageLoc.x - canvasOffset.left) * this.getScaleX();
             hyevent.offsetLoc.y = (hyevent.pageLoc.y - canvasOffset.top) * this.getScaleY();
             hyevent.wheelDelta = e.wheelDelta ? e.wheelDelta : e.detail;
@@ -655,4 +655,4 @@ var hy = hy || {};
         this.superCall("purge", null);
     }
 
-}(hy, window, document);
+})(hy, window, document);

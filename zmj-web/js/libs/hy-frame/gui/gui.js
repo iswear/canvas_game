@@ -3,7 +3,7 @@
  */
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.gui = {};
     hy.gui.TEXT_HORALIGN_LEFT = 1;
@@ -60,4 +60,4 @@ var hy = hy || {};
     hy.gui.colors.GRAYLEVEL13 = "#dddddd";
     hy.gui.colors.GRAYLEVEL14 = "#eeeeee";
 
-}(hy, window, document);
+})(hy, window, document);

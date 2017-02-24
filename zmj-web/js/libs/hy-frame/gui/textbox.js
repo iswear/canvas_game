@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function showHtmlTextBox (sender, e) {
         if (this._editEnable) {
@@ -41,4 +41,4 @@ var hy = hy || {};
         return this._editEnable;
     }
 
-}(hy, window, document);
+})(hy, window, document);

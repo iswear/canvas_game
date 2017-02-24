@@ -7,7 +7,7 @@
  */
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function layoutSimpleListItemView (sender, zone) {
         this._itemIcon.setX(0);
@@ -43,4 +43,4 @@ var hy = hy || {};
         return this._itemLabel.getTextMeasuredLength();
     }
 
-}(hy, window, document);
+})(hy, window, document);

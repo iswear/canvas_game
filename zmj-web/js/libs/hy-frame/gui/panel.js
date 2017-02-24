@@ -1,7 +1,7 @@
 //sans-serif"
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function paintPanelHeader (sender, dc, zone) {
         dc.beginPath();
@@ -53,4 +53,4 @@ var hy = hy || {};
         return this._mainView;
     }
 
-}(hy, window, document);
+})(hy, window, document);

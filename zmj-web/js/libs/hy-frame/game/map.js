@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function paintGrid (sender, dc, zone) {
         var visibleZone = this.getClipZone();
@@ -383,4 +383,4 @@ var hy = hy || {};
         return this._renderLayer;
     }
 
-}(hy, window, document);
+})(hy, window, document);

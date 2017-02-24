@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.Notification = hy.extend(hy.Object);
     hy.Notification.prototype.init = function (config) {
@@ -69,4 +69,4 @@ var hy = hy || {};
         this.superCall("purge", null);
     }
 
-}(hy, window, document);
+})(hy, window, document);

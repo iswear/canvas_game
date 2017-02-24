@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function syncClipZoneX (sender) {
         var width = Math.round(this._width);
@@ -981,4 +981,4 @@ var hy = hy || {};
         this._childNodes = null;
         this.superCall("purge", null);
     }
-}(hy, window, document);
+})(hy, window, document);

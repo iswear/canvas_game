@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function showComlboboxItem (sender, e) {
         if (e.button == 0 && this._optionItems != null && this._optionItems.length > 0) {
@@ -65,4 +65,4 @@ var hy = hy || {};
         return this._selectedItemIndex;
     }
 
-}(hy, window, document);
+})(hy, window, document);

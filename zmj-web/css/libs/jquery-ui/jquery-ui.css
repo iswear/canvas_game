@@ -6,8 +6,8 @@
 
 /* scrollbar */
 *::-webkit-scrollbar {
-	width: 8px;
-	height: 8px;
+	width: 7px;
+	height: 7px;
 	background: transparent;
 	/*background-color: #F5F5F5;*/
 }

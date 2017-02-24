@@ -8,7 +8,7 @@
  */
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function showDropDownMenu (sender, e) {
         if (e.button == 0 && this._dropItems != null && this._dropItems.length > 0) {
@@ -52,4 +52,4 @@ var hy = hy || {};
         return this._selColor;
     }
 
-}(hy, window, document);
+})(hy, window, document);

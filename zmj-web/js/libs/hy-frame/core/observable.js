@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy) {
+(function (hy) {
 
     hy.Observable = hy.extend(hy.Object);
     hy.Observable.prototype.init = function (config) {
@@ -25,4 +25,4 @@ var hy = hy || {};
         this.superCall("purge", null);
     }
 
-}(hy);
+})(hy);

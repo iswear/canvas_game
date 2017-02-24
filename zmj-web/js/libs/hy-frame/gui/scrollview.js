@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function layoutScrollView (sender, zone) {
         this._horScrollBar.setX(0);
@@ -191,4 +191,4 @@ var hy = hy || {};
         return this._contentView;
     }
 
-}(hy, window, document);
+})(hy, window, document);
