@@ -3,7 +3,7 @@
  */
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function mouseoverBtn (sender, e) {
         this.setBackgroundColor(this._hoverColor);
@@ -18,7 +18,7 @@ var hy = hy || {};
     hy.gui.Button.prototype.defaultNormalColor = null;
     hy.gui.Button.prototype.defaultHoverColor = hy.gui.colors.DBLUE;
     hy.gui.Button.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._normalColor = hy.util.dataType.isUndefined(config.normalColor) ? this.defaultNormalColor : config.normalColor;
         this._hoverColor = hy.util.dataType.isUndefined(config.hoverColor) ? this.defaultHoverColor : config.hoverColor;
 
@@ -38,4 +38,4 @@ var hy = hy || {};
         return this._selColor;
     }
 
-}(hy, window, document);
+})(hy, window, document);

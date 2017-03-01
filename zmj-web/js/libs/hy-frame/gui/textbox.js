@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function showHtmlTextBox (sender, e) {
         if (this._editEnable) {
@@ -28,7 +28,7 @@ var hy = hy || {};
     hy.gui.TextBox.prototype.defaultEditEnable = true;
     hy.gui.TextBox.prototype.defaultResponseEnable = true;
     hy.gui.TextBox.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._editEnable = hy.util.dataType.isUndefined(config.editEnable) ? this.defaultEditEnable : config.editEnable;
         this.addObserver(hy.event.name.TEXTCHG, this, syncTextBoxToInputBox, 0);
         this.addObserver(hy.event.name.MOUSEOVER, this, showHtmlTextBox, 0);
@@ -41,4 +41,4 @@ var hy = hy || {};
         return this._editEnable;
     }
 
-}(hy, window, document);
+})(hy, window, document);

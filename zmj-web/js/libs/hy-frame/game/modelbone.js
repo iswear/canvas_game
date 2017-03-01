@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function syncModelResponseZone (sender) {
         var height = this.getHeight() / 2;
@@ -30,13 +30,13 @@ var hy = hy || {};
     hy.game = hy.game || {};
     hy.game.ModelBone = hy.extend(hy.game.Model);
     hy.game.ModelBone.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this.addObserver(hy.event.name.HEIGHTCHG, this, syncModelResponseZone, 0);
         this.addObserver(hy.event.name.PAINT, this, paintModelBone, Infinity);
     }
     hy.game.ModelBone.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         syncModelResponseZone.call(this);
     }
 
-}(hy, window, document);
+})(hy, window, document);

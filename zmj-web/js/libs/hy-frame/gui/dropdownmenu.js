@@ -8,7 +8,7 @@
  */
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function showDropDownMenu (sender, e) {
         if (e.button == 0 && this._dropItems != null && this._dropItems.length > 0) {
@@ -27,7 +27,7 @@ var hy = hy || {};
     hy.gui.DropDownMenu.prototype.defaultNormalColor = null;
     hy.gui.DropDownMenu.prototype.defaultSelColor = hy.gui.colors.DBLUE;
     hy.gui.DropDownMenu.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._dropItems = hy.util.dataType.isUndefined(config.dropItems) ? null : config.dropItems;
         this._normalColor = hy.util.dataType.isUndefined(config.normalColor) ? this.defaultNormalColor : config.normalColor;
         this._selColor = hy.util.dataType.isUndefined(config.selColor) ? this.defaultSelColor : config.selColor;
@@ -52,4 +52,4 @@ var hy = hy || {};
         return this._selColor;
     }
 
-}(hy, window, document);
+})(hy, window, document);

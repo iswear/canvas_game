@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function syncSplitSpaceViews () {
         if (this._splitViews && this._splitViews.length > 0) {
@@ -222,7 +222,7 @@ var hy = hy || {};
     hy.gui.SplitView.prototype.defaultAdjustEnable = true;
     hy.gui.SplitView.prototype.defaultSplitDirection = 0;
     hy.gui.SplitView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._splitViews = hy.util.dataType.isUndefined(config.splitViews) ? null : config.splitViews;
         this._splitSpace = hy.util.dataType.isUndefined(config.splitSpace) ? this.defaultSplitSpace : config.splitSpace;
         this._splitDirection = hy.util.dataType.isUndefined(config.splitDirection) ? this.defaultSplitDirection : config.splitDirection;
@@ -236,8 +236,8 @@ var hy = hy || {};
         //this.addObserver(hy.event.name.PAINT, this, this._paintSplitSpaceViews, 0);
     }
     hy.gui.SplitView.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         syncSplitSpaceViews.call(this);
     }
 
-}(hy, window, document);
+})(hy, window, document);

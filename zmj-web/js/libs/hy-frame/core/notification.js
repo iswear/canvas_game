@@ -1,10 +1,10 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.Notification = hy.extend(hy.Object);
     hy.Notification.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._observers = {};
         this._observersCount = {};
     }
@@ -66,7 +66,7 @@ var hy = hy || {};
     }
     hy.Notification.prototype.purge = function () {
         this._observers = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
-}(hy, window, document);
+})(hy, window, document);

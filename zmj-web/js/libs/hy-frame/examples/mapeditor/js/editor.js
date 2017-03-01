@@ -1,5 +1,5 @@
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function layoutMapEditor (sender, zone) {
         this._map.setX(0);
@@ -12,7 +12,7 @@
     mapeditor.class = mapeditor.class || {};
     mapeditor.class.MainWin = hy.extend(hy.gui.View);
     mapeditor.class.MainWin.prototype.init = function(config){
-        this.superCall("init",[config]);
+        this.super("init",[config]);
         this._map = new hy.game.Map({
             responseZone:{minX:-Infinity, minY:-Infinity, maxX:Infinity, maxY:Infinity},
             responseEnable:true,
@@ -31,4 +31,4 @@
         contextmenu:["呵呵"]
     }));
 
-}(hy, window, document);
+})(hy, window, document);

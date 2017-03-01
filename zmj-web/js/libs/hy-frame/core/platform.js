@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.platform = {};
     hy.platform._isMobile = navigator.userAgent.toLowerCase().indexOf("mobile") != -1;
@@ -17,4 +17,4 @@ var hy = hy || {};
         return hy.platform._isIE;
     }
 
-}(hy, window, document);
+})(hy, window, document);

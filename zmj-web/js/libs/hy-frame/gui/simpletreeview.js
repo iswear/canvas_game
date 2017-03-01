@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function expandedTreeNode (sender, e) {
         if (sender && e.targetNode == sender.getNodeExpandIcon()) {
@@ -81,7 +81,7 @@ var hy = hy || {};
     hy.gui.SimpleTreeView.prototype.defaultNodeHeight = 20;
     hy.gui.SimpleTreeView.prototype.defaultDataSource = defaultDataSource;
     hy.gui.SimpleTreeView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._nodeHeight = hy.util.dataType.isUndefined(config.nodeHeight) ? this.defaultNodeHeight : config.nodeHeight;
     }
     hy.gui.SimpleTreeView.prototype.setNodeHeight = function (nodeHeight) {
@@ -142,4 +142,4 @@ var hy = hy || {};
         return this.getSelectedNodePath();
     }
 
-}(hy, window, document);
+})(hy, window, document);

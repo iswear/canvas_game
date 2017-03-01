@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function(hy, win, doc) {
+(function(hy, win, doc) {
 
     function reloadList () {
         if (this.__needReloadList) {
@@ -238,7 +238,7 @@ var hy = hy || {};
     hy.gui.ListView = hy.extend(hy.gui.ScrollView);
     hy.gui.ListView.prototype.defaultDataSource = defaultDataSource;
     hy.gui.ListView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._paddingLeft = hy.util.dataType.isUndefined(config.paddingLeft) ? 0 : config.paddingLeft;
         this._paddingRight = hy.util.dataType.isUndefined(config.paddingRight) ? 0 : config.paddingRight;
         this._paddingTop = hy.util.dataType.isUndefined(config.paddingTop) ? 0 : config.paddingTop;
@@ -355,4 +355,4 @@ var hy = hy || {};
         this.__needMallocListView = true;
     }
 
-}(hy, window, document);
+})(hy, window, document);

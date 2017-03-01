@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy) {
+(function (hy) {
 
     function loadCallBack (callBack, target, url, success) {
         if (callBack) {
@@ -15,7 +15,7 @@ var hy = hy || {};
     hy.net = hy.net || {};
     hy.net.FileLoader = hy.extend(hy.Observable);
     hy.net.FileLoader.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._loadingImages = {};
         this._loadedImages = {};
         this._loadingAudios = {};
@@ -174,4 +174,4 @@ var hy = hy || {};
         this._loadedVideos = {};
     }
 
-}(hy);
+})(hy);

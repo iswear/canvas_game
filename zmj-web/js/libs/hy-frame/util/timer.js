@@ -3,7 +3,7 @@
  */
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.util = hy.util || {};
     hy.util.timer = hy.util.timer || {};
@@ -42,4 +42,4 @@ var hy = hy || {};
     }
 
 
-}(hy, window, document);
+})(hy, window, document);

@@ -1,10 +1,10 @@
 var hy = hy || {};
 
-+function (hy) {
+(function (hy) {
 
     hy.Observable = hy.extend(hy.Object);
     hy.Observable.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._localNotification = new hy.Notification({});
     }
     hy.Observable.prototype.addObserver = function (name, target, callBack, index) {
@@ -22,7 +22,7 @@ var hy = hy || {};
     hy.Observable.prototype.purge = function () {
         this._localNotification.purge();
         this._localNotification = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
-}(hy);
+})(hy);

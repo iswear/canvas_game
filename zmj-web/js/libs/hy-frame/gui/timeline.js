@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function sortKeyFrames (keyFrames) {
         for (var i = 1, len = this._keyFrames.length; i < len; ++i) {
@@ -81,7 +81,7 @@ var hy = hy || {};
     hy.gui.Timeline.prototype.defaultDuration = 3;
     hy.gui.Timeline.prototype.defaultClipEnable = false;
     hy.gui.Timeline.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._duration = hy.util.dataType.isUndefined(config.duration) ? this.defaultDuration : config.duration;
         this._keyFrames = hy.util.dataType.isUndefined(config.keyFrames) ? [] : config.keyFrames;
         this._selectedFrame = -1;
@@ -168,4 +168,4 @@ var hy = hy || {};
         }
     }
 
-}(hy, window, document);
+})(hy, window, document);

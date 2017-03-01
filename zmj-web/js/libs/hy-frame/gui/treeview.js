@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function reloadTree () {
         if (this.__needReloadTree) {
@@ -381,7 +381,7 @@ var hy = hy || {};
     hy.gui.TreeView = hy.extend(hy.gui.ScrollView);
     hy.gui.TreeView.prototype.defaultDataSource = defaultDataSource;
     hy.gui.TreeView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._paddingLeft = hy.util.dataType.isUndefined(config.paddingLeft) ? 0 : config.paddingLeft;
         this._paddingRight = hy.util.dataType.isUndefined(config.paddingRight) ? 0 : config.paddingRight;
         this._paddingTop = hy.util.dataType.isUndefined(config.paddingTop) ? 0 : config.paddingTop;
@@ -519,4 +519,4 @@ var hy = hy || {};
         this.__needMallocTreeView = true;
     }
 
-}(hy, window, document);
+})(hy, window, document);

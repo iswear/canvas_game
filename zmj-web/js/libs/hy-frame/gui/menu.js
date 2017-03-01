@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function layoutMenuItems (sender, zone) {
         for (var i = 0, count = this._dropDownItems.length; i < count; ++i) {
@@ -50,7 +50,7 @@ var hy = hy || {};
     hy.gui.Menu = hy.extend(hy.gui.View);
     hy.gui.Menu.prototype.defaultResponseEnable = false;
     hy.gui.Menu.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._menuItems = hy.util.dataType.isUndefined(config.menuItems) ? null : config.menuItems;
         this._dropDownItems = [];
         this.__needMallocMenuItems = true;
@@ -68,4 +68,4 @@ var hy = hy || {};
         this.__needMallocMenuItems = true;
     }
 
-}(hy, window, document);
+})(hy, window, document);

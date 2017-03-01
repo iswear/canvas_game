@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function paintImageViewImgSubFun (dc, zone, image, srcX, srcY, srcWidth, srcHeight) {
         var width = zone.width;
@@ -66,7 +66,7 @@ var hy = hy || {};
     hy.gui = hy.gui || {};
     hy.gui.ImageView = hy.extend(hy.gui.View);
     hy.gui.ImageView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._image = hy.util.dataType.isUndefined(config.image) ? null : config.image;
         this._mirror = hy.util.dataType.isUndefined(config.mirror) ? hy.gui.MIRROR_NONE : config.mirror;
         this.addObserver(hy.event.name.PAINT, this, paintImageViewImg, 0);
@@ -90,4 +90,4 @@ var hy = hy || {};
         return this._mirror;
     }
 
-}(hy, window, document);
+})(hy, window, document);

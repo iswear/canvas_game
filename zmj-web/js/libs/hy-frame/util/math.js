@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.util = hy.util || {};
     hy.util.math = hy.util.math || {};
@@ -56,4 +56,4 @@ var hy = hy || {};
     hy.util.math.polygon = {};
     /*{minX:,maxX:,minY:,maxY:}*/
 
-}(hy, window, document);
+})(hy, window, document);

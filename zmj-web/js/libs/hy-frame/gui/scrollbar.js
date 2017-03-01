@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function dragScrollBar (sender, e) {
         if (this._scrollDirection == 0) {
@@ -63,7 +63,7 @@ var hy = hy || {};
     hy.gui.ScrollBar.prototype.defaultResponseEnable = false;
     hy.gui.ScrollBar.prototype.defaultBackgroundColor = hy.gui.colors.SILVER;
     hy.gui.ScrollBar.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._paddingLeft = hy.util.dataType.isUndefined(config.paddingLeft) ? this.defaultPaddingLeft : config.paddingLeft;
         this._paddingRight = hy.util.dataType.isUndefined(config.paddingRight) ? this.defaultPaddingRight : config.paddingRight;
         this._paddingTop = hy.util.dataType.isUndefined(config.paddingTop) ? this.defaultPaddingTop : config.paddingTop;
@@ -129,4 +129,4 @@ var hy = hy || {};
         return {scrolledRate: this.__scrolledRate, visibleRate: this.__visibleRate, overallRate: 1};
     }
 
-}(hy, window, document);
+})(hy, window, document);

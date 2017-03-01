@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function(hy, win, doc) {
+(function(hy, win, doc) {
 
     function layoutWindow (sender, zone) {
         this._icon.setX(zone.minX + 3);
@@ -81,7 +81,7 @@ var hy = hy || {};
     hy.gui.Window.prototype.defaultTitle = "window";
     hy.gui.Window.prototype.defaultCloseStyle = 1;
     hy.gui.Window.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._backgroundColor = hy.util.dataType.isUndefined(config.backgroundColor) ? this.defaultBackgroundColor : config.backgroundColor;
         this._icon = new hy.gui.ImageView({});
         this._closeIcon = new hy.gui.Button({normalColor: null, hoverColor: hy.gui.colors.RED, responseEnable: true});
@@ -107,7 +107,7 @@ var hy = hy || {};
         this.addObserver(hy.event.name.LAYOUTSUBNODES, this, layoutWindow);
     }
     hy.gui.Window.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         syncViewResponseZoneX.call(this);
         syncViewResponseZoneY.call(this);
     }
@@ -133,4 +133,4 @@ var hy = hy || {};
         return this._backgroundColor;
     }
 
-}(hy, window, document);
+})(hy, window, document);

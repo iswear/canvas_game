@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function createFullScreenCanvas () {
         var canvas = document.createElement("canvas");
@@ -130,13 +130,13 @@ var hy = hy || {};
             hyevent.pageLoc.x = touch.pageX;
             hyevent.pageLoc.y = touch.pageY;
             if (hyevent.preValid) {
-                var canvasOffset = hy.util.dom.getPageOffset(this._renderCanvas);
+                var canvasOffset = this._renderCanvas.getBoundingClientRect();
                 hyevent.preOffsetLoc.x = hyevent.offsetLoc.x;
                 hyevent.preOffsetLoc.y = hyevent.offsetLoc.y;
                 hyevent.offsetLoc.x = (hyevent.pageLoc.x - canvasOffset.left) * this.getScaleX();
                 hyevent.offsetLoc.y = (hyevent.pageLoc.y - canvasOffset.top) * this.getScaleY();
             } else {
-                var canvasOffset = hy.util.dom.getPageOffset(this._renderCanvas);
+                var canvasOffset = this._renderCanvas.getBoundingClientRect();
                 hyevent.offsetLoc.x = (hyevent.pageLoc.x - canvasOffset.left) * this.getScaleX();
                 hyevent.offsetLoc.y = (hyevent.pageLoc.y - canvasOffset.top) * this.getScaleY();
                 hyevent.preOffsetLoc.x = hyevent.offsetLoc.x;
@@ -164,7 +164,7 @@ var hy = hy || {};
             hyevent.pageLoc.y = e.pageY ? e.pageY : (document.body.scrollTop + e.clientY);
             hyevent.preOffsetLoc.x = hyevent.offsetLoc.x;
             hyevent.preOffsetLoc.y = hyevent.offsetLoc.y;
-            var canvasOffset = hy.util.dom.getPageOffset(this._renderCanvas);
+            var canvasOffset = this._renderCanvas.getBoundingClientRect();
             hyevent.offsetLoc.x = (hyevent.pageLoc.x - canvasOffset.left) * this.getScaleX();
             hyevent.offsetLoc.y = (hyevent.pageLoc.y - canvasOffset.top) * this.getScaleY();
             hyevent.wheelDelta = e.wheelDelta ? e.wheelDelta : e.detail;
@@ -185,7 +185,7 @@ var hy = hy || {};
     hy.Application.prototype.defaultWinWidth = 600;
     hy.Application.prototype.defaultWinHeight = 400;
     hy.Application.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._winWidth = hy.util.dataType.isUndefined(config.winWidth) ? this.defaultWinWidth : config.winWidth;
         this._winHeight = hy.util.dataType.isUndefined(config.winHeight) ? this.defaultWinHeight : config.winHeight;
         this._canvasWidth = 0;
@@ -245,7 +245,7 @@ var hy = hy || {};
         this._runNodeInfo.rootNode.addChildNodeAtLayer(this._contextMenu, 1);
     }
     hy.Application.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         checkSyncAppSizeEnv.call(this);
     }
     hy.Application.prototype.getWinWidth = function () {
@@ -652,7 +652,7 @@ var hy = hy || {};
         this._actionManager = null;
         this._fileLoader.purge();
         this._fileLoader = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
-}(hy, window, document);
+})(hy, window, document);

@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function syncClipZoneX (sender) {
         var width = Math.round(this._width);
@@ -130,7 +130,7 @@ var hy = hy || {};
     hy.Node.prototype.defaultMaxY = Infinity;
 
     hy.Node.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._x = hy.util.dataType.isUndefined(config.x) ? this.defaultX : config.x;
         this._y = hy.util.dataType.isUndefined(config.y) ? this.defaultY : config.y;
         this._width = hy.util.dataType.isUndefined(config.width) ? this.defaultWidth : config.width;
@@ -198,7 +198,7 @@ var hy = hy || {};
 
     }
     hy.Node.prototype.sync = function () {
-        this.superCall("sync", null);
+        this.super("sync", null);
         syncClipZoneX.call(this);
         syncClipZoneY.call(this);
         syncIntX.call(this);
@@ -979,6 +979,6 @@ var hy = hy || {};
             }
         }
         this._childNodes = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
-}(hy, window, document);
+})(hy, window, document);

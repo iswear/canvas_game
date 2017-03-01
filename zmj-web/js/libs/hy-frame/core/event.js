@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.event = hy.event || {};
 
@@ -205,6 +205,6 @@ var hy = hy || {};
     // hy.event.name.ABSWIDTHCHG = "abswidthchg";
     // hy.event.name.ABSHEIGHTCHG = "absheightchg";
 
-}(hy, window, document);
+})(hy, window, document);
 
 

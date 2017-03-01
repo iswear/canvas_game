@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        span:active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<span style="font-size: 12px; font-family: Helvetica, Roboto, Arial, sans-serif">中文12px</span>
+<span style="font-size: 14px;">中文14px</span>
+<span style="font-size: 16px;">中文16px</span>
+<span style="font-size: 18px;">中文18px</span>
+<div style="float: left; height: 2em; line-height: 2em; font-size: 1em; background-color: green">我的不是你的</div>
+<div style="float: left; height: 2em; background-color: red; width: 100px;"></div>
+<div id="1" data-tag="helloworld"></div>
+<script type="text/javascript" src="js/libs/jquery/jquery.js"></script>
+<script>
+    var b = $("#1").data();
+    console.log(b);
+</script>
+</body>
+</html>

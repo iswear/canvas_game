@@ -7,7 +7,7 @@
  */
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function layoutSimpleListItemView (sender, zone) {
         this._itemIcon.setX(0);
@@ -26,7 +26,7 @@ var hy = hy || {};
     hy.gui.SimpleListItemView.prototype.defaultItemEditEnable = false;
     hy.gui.SimpleListItemView.prototype.clipBound = false;
     hy.gui.SimpleListItemView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._itemIcon = new hy.gui.ImageView({responseEnable: false});
         this._itemLabel = new hy.gui.Label({lineNum: 1});
         this.addChildNodeAtLayer(this._itemIcon, 0);
@@ -43,4 +43,4 @@ var hy = hy || {};
         return this._itemLabel.getTextMeasuredLength();
     }
 
-}(hy, window, document);
+})(hy, window, document);

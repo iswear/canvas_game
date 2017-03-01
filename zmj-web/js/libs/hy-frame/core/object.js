@@ -1,54 +1,29 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.Object = hy.extend(null);
-    hy.Object.prototype.superCall = function (funName, args) {
+    hy.Object.prototype.super = function (funName, args) {
         if (arguments.length == 1 || !args) {
             args = [];
         }
-        var runflag = false;
-        var retValue;
-        if (this._assSuper_ == null) {
-            this._assSuper_ = {};
-        }
-        if (this._assPreSuper_ == null) {
-            this._assPreSuper_ = {};
-        }
-        while (!runflag) {
-            if (!this._assSuper_[funName]) {
-                if (this._super_) {
-                    this._assPreSuper_[funName] = this;
-                    this._assSuper_[funName] = this._super_;
-                }
+        var that = this.__super_ ? this.__super_ : this;
+        var prototype = that._super_;
+        var ret = undefined;
+        while (typeof prototype[funName] === 'function') {
+            if (that[funName] === prototype[funName]) {
+                prototype = prototype._super_;
+                continue;
             } else {
-                if (this._assPreSuper_[funName]._super_) {
-                    this._assPreSuper_[funName] = this._assPreSuper_[funName]._super_;
-                } else {
-                    this._assPreSuper_[funName] = null;
-                }
-                if (this._assSuper_[funName]._super_) {
-                    this._assSuper_[funName] = this._assSuper_[funName]._super_;
-                } else {
-                    this._assSuper_[funName] = null;
-                }
-            }
-            var preSuper = this._assPreSuper_[funName];
-            var tempSuper = this._assSuper_[funName];
-            if (tempSuper && tempSuper[funName]) {
-                if (!(preSuper && preSuper[funName] && preSuper[funName] == tempSuper[funName])) {
-                    retValue = tempSuper[funName].apply(this, args);
-                    runflag = true;
-                }
-            } else {
-                runflag = true;
+                this.__super_ = prototype;
+                ret = prototype[funName].apply(this, args);
+                break;
             }
         }
-        this._assSuper_[funName] = null;
-        return retValue;
+        this.__super_ = null;
+        return ret;
     }
     hy.Object.prototype.init = function (config) {
-        this.superCall("init", [config])
         this._userProperty = {};
     }
     hy.Object.prototype.getUserProperty = function (key) {
@@ -64,4 +39,4 @@ var hy = hy || {};
         this._userProperty = null;
     }
 
-}(hy, window, document);
+})(hy, window, document);

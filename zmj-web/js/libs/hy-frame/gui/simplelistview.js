@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     var defaultDataSource = {
         numberOfListItem: function (listView) {
@@ -45,7 +45,7 @@ var hy = hy || {};
     hy.gui.SimpleListView.prototype.defaultItemHeight = 20;
     hy.gui.SimpleListView.prototype.defaultDataSource = defaultDataSource;
     hy.gui.SimpleListView.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._items = hy.util.dataType.isUndefined(config.items) ? null : config.items;
         this._itemHeight = hy.util.dataType.isUndefined(config.itemHeight) ? this.defaultItemHeight : config.itemHeight;
         this._itemContextMenu = hy.util.dataType.isUndefined(config.itemContextMenu) ? null : config.itemContextMenu;
@@ -91,4 +91,4 @@ var hy = hy || {};
     }
 
 
-}(hy, window, document);
+})(hy, window, document);

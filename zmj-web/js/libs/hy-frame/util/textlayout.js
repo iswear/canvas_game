@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.util = hy.util || {};
 
@@ -14,7 +14,7 @@ var hy = hy || {};
 
     hy.util.TextLayouter = hy.extend(hy.Object);
     hy.util.TextLayouter.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._measureCanvas = document.createElement("canvas");
         this._measureContext = this._measureCanvas.getContext("2d");
         this._charWidthMaps = {};
@@ -193,7 +193,7 @@ var hy = hy || {};
         this._measureCanvas = null;
         this._measureContext = null;
         this._charWidthMaps = null;
-        this.superCall("purge", null);
+        this.super("purge", null);
     }
 
-}(hy, window, document);
+})(hy, window, document);

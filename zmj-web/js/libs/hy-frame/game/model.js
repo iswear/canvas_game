@@ -1,12 +1,12 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     hy.game = hy.game || {};
     hy.game.Model = hy.extend(hy.game.Unit);
     hy.game.Model.prototype.defaultName = "model";
     hy.game.Model.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._actionNames = hy.util.isUndefined(config.actionNames) ? [] : config.actionNames;
     }
     hy.game.Model.prototype.getActionNames = function () {
@@ -48,4 +48,4 @@ var hy = hy || {};
         }
     }
 
-}(hy, window, document);
+})(hy, window, document);

@@ -1,4 +1,4 @@
-+function ($, hy, win, doc) {
+(function ($, hy, win, doc) {
 
     /**
      * jquery ui 层
@@ -198,7 +198,7 @@
 
         var Map = hy.extend(hy.gui.View);
         Map.prototype.init = function (config) {
-            this.superCall("init", [config]);
+            this.super("init", [config]);
             this._map = new hy.game.Map({
                 terrainRes: {
                     "1":{
@@ -258,4 +258,4 @@
         g_gameModular.application.run(g_gameModular.map);
     }();
 
-}(jQuery, hy, window, document);
+})(jQuery, hy, window, document);

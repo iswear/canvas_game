@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function paintTimelineRule (sender, dc, zone) {
         /*宽度为8*/
@@ -36,7 +36,7 @@ var hy = hy || {};
     hy.gui.TimelineRule.prototype.defaultDuration = 3;
     hy.gui.TimelineRule.prototype.defaultClipEnable = false;
     hy.gui.TimelineRule.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._duration = hy.util.dataType.isUndefined(config.duration) ? this.defaultDuration : config.duration;
         this._selectedFrame = -1;
         this.addObserver(hy.event.name.PAINT, this, paintTimelineRule, 0);
@@ -60,4 +60,4 @@ var hy = hy || {};
         return this._selectedFrame;
     }
 
-}(hy, window, document);
+})(hy, window, document);

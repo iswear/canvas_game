@@ -1,6 +1,6 @@
 var hy = hy || {};
 
-+function (hy, win, doc) {
+(function (hy, win, doc) {
 
     function showComlboboxItem (sender, e) {
         if (e.button == 0 && this._optionItems != null && this._optionItems.length > 0) {
@@ -38,7 +38,7 @@ var hy = hy || {};
     hy.gui.ComboBox.prototype.defaultSelColor = hy.gui.colors.DBLUE;
     hy.gui.ComboBox.prototype.defaultText = "";
     hy.gui.ComboBox.prototype.init = function (config) {
-        this.superCall("init", [config]);
+        this.super("init", [config]);
         this._optionItems = hy.util.dataType.isUndefined(config.optionItems) ? null : config.optionItems;
         this._selectedItemIndex = -1;
         this.addObserver(hy.event.name.MOUSEUP, this, showComlboboxItem, 0);
@@ -65,4 +65,4 @@ var hy = hy || {};
         return this._selectedItemIndex;
     }
 
-}(hy, window, document);
+})(hy, window, document);
